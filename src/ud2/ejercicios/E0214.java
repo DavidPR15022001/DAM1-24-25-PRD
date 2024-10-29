@@ -4,64 +4,71 @@ import java.util.Scanner;
 
 public class E0214 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int dia, mes, anho;
+        boolean hayQueIncrementarMes = false;
 
-        System.out.print("Introduce el día: ");
-        int dia = scanner.nextInt();
-        
-        System.out.print("Introduce el mes: ");
-        int mes = scanner.nextInt();
-        
-        System.out.print("Introduce el año: ");
-        int año = scanner.nextInt();
+        Scanner sc = new Scanner(System.in);
 
-        int diasDelMes;
+        System.out.print("Día (DD): ");
+        dia = sc.nextInt();
+        
+        int dia, mes, anho;
+        boolean hayQueIncrementarMes = false;
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Dia (DD): ");
+        dia = sc.nextInt();
+        System.out.print("Mes (MM): ");
+        mes = sc.nextInt();
+        System.out.print("Año (AAAA): ");
+        anho = sc.nextInt();
+        sc.close();
+
+        dia++;
+
+    
+        hayQueIncrementarMes = switch (mes) {
+            case 1, 3, 5, 7, 8, 10, 12 -> {
+                yield dia > 31;
+            }
+            case 2 -> {
+                boolean esBisiesto = anho % 400 == 0 || anho % 4 == 0 && !(anho % 100 == 0);
+                yield (esBisiesto && dia > 29) || (!esBisiesto && dia > 28);
+            }
+            case 4, 6, 9, 11 -> {
+                yield dia > 30;
+            }
+            default -> {
+                yield false;
+            }
+        };
 
         switch (mes) {
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12:
-                diasDelMes = 31;
-                break;
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                diasDelMes = 30;
+            case 1, 3, 5, 7, 8, 10, 12:
+                if (dia > 31) hayQueIncrementarMes = true;
                 break;
             case 2:
-    
-                if ((año % 4 == 0 && año % 100 != 0) || (año % 400 == 0)) {
-                    diasDelMes = 29;
-                } else {
-                    diasDelMes = 28;
-                }
+                if (dia > 28) hayQueIncrementarMes = true;
                 break;
-            default:
-                System.out.println("Mes inválido.");
-                scanner.close();
-                return;
+
+            case 4, 6, 9, 11:
+                if (dia > 30) hayQueIncrementarMes = true;
+                break;
         }
 
-        if (dia < 1 || dia > diasDelMes || mes < 1 || mes > 12) {
-            System.out.println("Fecha inválida.");
-        } else {
-            dia++;
-            if (dia > diasDelMes) {
-                dia = 1;
-                mes++;
-                if (mes > 12) {
-                    mes = 1;
-                    año++;
-                }
-            }
-            System.out.printf("El día siguiente es: %02d/%02d/%d%n", dia, mes, año);
-        }
 
-        scanner.close();
+        if (hayQueIncrementarMes) {
+            dia = 1;
+            mes++;
+
+            if (mes > 12) {
+                mes = 1;
+                anho++;
+            }            
+        }     
+
+
+
+        System.out.printf("El día siguiente es %d/%d/%d%n", dia, mes, anho);
+
     }
-}
