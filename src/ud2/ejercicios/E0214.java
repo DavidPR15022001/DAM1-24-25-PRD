@@ -8,14 +8,6 @@ public class E0214 {
         boolean hayQueIncrementarMes = false;
 
         Scanner sc = new Scanner(System.in);
-
-        System.out.print("Día (DD): ");
-        dia = sc.nextInt();
-        
-        int dia, mes, anho;
-        boolean hayQueIncrementarMes = false;
-
-        Scanner sc = new Scanner(System.in);
         System.out.print("Dia (DD): ");
         dia = sc.nextInt();
         System.out.print("Mes (MM): ");
@@ -26,7 +18,6 @@ public class E0214 {
 
         dia++;
 
-    
         hayQueIncrementarMes = switch (mes) {
             case 1, 3, 5, 7, 8, 10, 12 -> {
                 yield dia > 31;
@@ -64,11 +55,12 @@ public class E0214 {
             if (mes > 12) {
                 mes = 1;
                 anho++;
-            }            
-        }     
+            }
+        }
 
 
 
         System.out.printf("El día siguiente es %d/%d/%d%n", dia, mes, anho);
 
     }
+}
