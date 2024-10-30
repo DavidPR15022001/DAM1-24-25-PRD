@@ -1,4 +1,4 @@
-package ud2.ejercicios;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 
@@ -61,5 +61,6 @@ public class E0214 {
 
 
         System.out.printf("El día siguiente es %d/%d/%d%n", dia, mes, anho);
+
     }
 }

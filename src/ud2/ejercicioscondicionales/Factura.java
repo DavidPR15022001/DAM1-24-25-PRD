@@ -1,4 +1,4 @@
-package ud2.ejercicios;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 
@@ -35,6 +35,6 @@ public class Factura {
             precioFinal = precioConIva;
         }
 
-        System.out.printf("Precio Final: %.2f € %n", precioFinal);
+        System.out.printf("Precio Final: %.2f euros %n", precioFinal);
     }
 }
