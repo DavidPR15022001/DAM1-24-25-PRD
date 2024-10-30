@@ -1,4 +1,4 @@
-package ud2.ejercicios;
+package ud2.ejercicioscondicionales;
 
 public class E0217_Random {
     public static void main(String[] args) {
