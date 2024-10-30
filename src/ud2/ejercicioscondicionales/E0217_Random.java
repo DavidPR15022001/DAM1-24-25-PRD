@@ -1,26 +1,23 @@
 package ud2.ejercicioscondicionales;
 
+import java.util.Scanner;
+
 public class E0217_Random {
     public static void main(String[] args) {
         int MAX = 99;
         int MIN = 1;
-        Math.random();
-        double n = Math.random() * MAX;
-        int n2 = (int) (Math.random() * MAX);
-        int n3 = (int) (Math.random() * (MAX - MIN + 1)) + MIN;
+        int num1 = (int) (Math.random() * (MAX - MIN + 1)) + MIN;
+        int num2 = (int) (Math.random() * (MAX - MIN + 1)) + MIN;
+        Scanner sc = new Scanner(System.in);
+        System.out.printf("Escribe el resultado de sumar %d y %d: ", num1, num2);
+        int sumaUsuario = sc.nextInt();
+        sc.close();
 
-        for (int i = 0; i < 100000; i++) {
-            int num = (int) (Math.random() * (MAX - MIN + 1)) + MIN;
-            System.out.println(num);
-            if (num > MAX)
-                System.out.println("Número demasiado alto");
-            if (num < MIN)
-                System.out.println("Número demasiado bajo");
-            if (num == 1)
-                System.out.println("UNOOOO");
-            if (num == 99)
-                System.out.println("NOVENTA Y NUEVE");
-
+        if (sumaUsuario == num1 + num2) {
+            System.out.println("Enhorabuena!! Has acertado!!");
+        } else {
+            System.out.printf("ERROR!! El resultado era %d%n", num1 + num2);
+        }
         }
     }
-}
+
