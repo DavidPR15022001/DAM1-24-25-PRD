@@ -1,3 +1,5 @@
+//Dario Costas: Piloto ; David Padin: Copiloto//
+
 package ud1.ejercicios.parejas;
 
 import java.util.Scanner;
