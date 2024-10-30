@@ -2,7 +2,7 @@ package ud2.ejemplos;
 
 import java.util.Scanner;
 
-public class EjemploDoWhile {
+public class EjemploDoWhile1 {
     public static void main(String[] args) {
         int valor;
         Scanner in = new Scanner(System.in);
