@@ -13,6 +13,6 @@ public class CalculoPagoCena {
 
         System.out.println("Número de personas: " + numPersonas);
 
-        System.out.println("Cada persona debe pagar " + importePersona + "€");
+        System.out.println("Cada persona debe pagar " + importePersona + "euros");
     }
 }
