@@ -35,6 +35,6 @@ public class Factura {
             precioFinal = precioConIva;
         }
 
-        System.out.printf("Precio Final: %.2f € %n", precioFinal);
+        System.out.printf("Precio Final: %.2f euros %n", precioFinal);
     }
 }
