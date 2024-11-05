@@ -1,4 +1,4 @@
-package ud1.ejercicios.parejas;
+package ud1.pruebas;
 
 public class EP0127 {
     public static void main(String[] args) {
