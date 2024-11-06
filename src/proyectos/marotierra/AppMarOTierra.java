@@ -2,9 +2,9 @@ package proyectos.marotierra;
 
 import java.util.Scanner;
 
-/**
+/*
  * Juego de adivinar si un punto geográfico está en el mar o en tierra.
- * TODO: Falla cuando el punto geográfico está en la Antártida porque OSM no devuelve un país.
+ * Falla cuando el punto geográfico está en la Antártida porque OSM no devuelve un país.
  */
 public class AppMarOTierra {
     public static void main(String[] args) {
