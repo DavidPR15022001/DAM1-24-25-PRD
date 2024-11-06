@@ -23,7 +23,15 @@ public class E0315 {
             }
             System.out.println("");
         }
-
+        /*
+         * // Otra opción de bucles anidados
+         * for (int i = numero; i >= 1; i--) {
+         * for (int j = 1; j <= i; j++) {
+         * System.out.print("* ");
+         * }
+         * System.out.println("");
+         * }
+         */
     }
 
 }

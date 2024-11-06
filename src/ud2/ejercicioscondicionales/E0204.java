@@ -12,7 +12,16 @@ public class E0204 {
         System.out.println("Introduce un número decimal:");
         numero = sc.nextDouble();
         sc.close();
-
+        /*
+         * SOLUCIÓN CON IFS ANIDADOS
+         * if (numero != 0) {
+         * if (numero > -1) {
+         * if (numero < 1) {
+         * casiCero = true;
+         * }
+         * }
+         * }
+         */
         if (numero != 0) {
             if (numero > -1) {
                 if (numero < 1) {
@@ -21,7 +30,7 @@ public class E0204 {
             }
         }
         casiCero = numero != 0 && numero > -1 && numero < 1;
-        
+
         if (casiCero) {
             System.out.println("El numero " + numero + " es casi-cero.");
         } else {

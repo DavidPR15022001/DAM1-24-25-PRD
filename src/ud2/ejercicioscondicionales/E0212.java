@@ -15,7 +15,37 @@ public class E0212 {
         System.out.println("Introduce el año: ");
         anho = sc.nextInt();
         sc.close();
-
+        /*
+         * // SOLUCIÓN CON SWITCH TRADICIONAL
+         * switch (mes) {
+         * case 1:
+         * case 3:
+         * case 5:
+         * case 7:
+         * case 8:
+         * case 10:
+         * case 12:
+         * if (dia < 1 || dia > 31) {
+         * fechaCorrecta = false;
+         * }
+         * break;
+         * case 4:
+         * case 6:
+         * case 9:
+         * case 11:
+         * if (dia < 1 || dia > 30) {
+         * fechaCorrecta = false;
+         * }
+         * break;
+         * case 2:
+         * if (dia < 1 || dia > 28) {
+         * fechaCorrecta = false;
+         * }
+         * break;
+         * default:
+         * fechaCorrecta = false;
+         * }
+         */
         switch (mes) {
             case 1:
             case 3:
