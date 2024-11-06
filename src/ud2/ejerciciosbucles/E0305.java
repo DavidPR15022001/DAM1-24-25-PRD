@@ -1,8 +1,9 @@
 package ud2.ejerciciosbucles;
+
 import java.util.Scanner;
+
 public class E0305 {
     public static void main(String[] args) {
-        // Declaración de variables y constantes
         final int NUM_MAXIMO = 100;
         int operando1;
         int operando2;

@@ -10,11 +10,10 @@ public class E0301 {
         System.out.println("Escribe un número: ");
         numero = sc.nextInt();
         while (numero != 0) {
-            // Proceso
             if (numero % 2 == 0)
                 System.out.println("Es par");
-            
-            if (numero > 0) 
+
+            if (numero > 0)
                 System.out.println("Es positivo");
 
             System.out.println("El cuadrado es " + Math.pow(numero, 2));
