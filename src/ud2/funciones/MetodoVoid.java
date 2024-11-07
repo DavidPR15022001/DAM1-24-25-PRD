@@ -16,15 +16,16 @@ public class MetodoVoid {
     // método que muestra un String rodeado por un borde
     public static void cajaTexto(String str) {
         int n = str.length(); // longitud del String
+
+        imprimirLinea(n);
+        System.out.println("# " + str + " #"); // cadena con un borde en cada lado
+        imprimirLinea(n);
+    }
+
+    public static void imprimirLinea(int n) {
         for (int i = 1; i <= n + 4; i++) { // borde de arriba
             System.out.print("#");
         }
-        System.out.println();
-        System.out.println("# " + str + " #"); // cadena con un borde en cada lado
-        for (int i = 1; i <= n + 4; i++) { // borde de abajo
-            System.out.print("#");
-        }
-        System.out.println();
     }
 
 }
