@@ -7,7 +7,7 @@ import ud2.Util;
 public class LlamadasUtil {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Número / Anho: ");
+        System.out.print("Número / Año: ");
         int n = sc.nextInt();
         sc.close();
 

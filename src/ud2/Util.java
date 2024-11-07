@@ -66,7 +66,7 @@ public class Util {
         System.out.println(notaEnTexto(notaInt));
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Número / Anho: ");
+        System.out.print("Número / Año: ");
         int n = sc.nextInt();
         sc.close();
 
