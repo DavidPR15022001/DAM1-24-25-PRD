@@ -10,7 +10,69 @@ public class E0210 {
         System.out.println("Introduce una nota (número entero) de 0 a 10: ");
         nota = sc.nextInt();
         sc.close();
+        /*
+         * // SOLUCIÓN CON IFS ANIDADOS
+         * if (nota < 0 || nota > 10) {
+         * System.out.println("La nota debe estar entre 0 y 10.");
+         * } else if (nota >= 0 && nota <= 4) {
+         * System.out.println("Insuficiente");
+         * } else if (nota == 5) {
+         * System.out.println("Suficiente");
+         * } else if (nota == 6) {
+         * System.out.println("Bien");
+         * } else if (nota == 7 || nota == 8) {
+         * System.out.println("Notable");
+         * } else {
+         * System.out.println("Sobresaliente");
+         * }
+         */
 
+        /*
+         * // SOLUCIÓN CON SWITCH TRADICIONAL
+         * switch (nota) {
+         * case 0:
+         * case 1:
+         * case 2:
+         * case 3:
+         * case 4:
+         * System.out.println("Insuficiente");
+         * break;
+         * case 5:
+         * System.out.println("Suficiente");
+         * break;
+         * case 6:
+         * System.out.println("Bien");
+         * break;
+         * case 7:
+         * case 8:
+         * System.out.println("Notable");
+         * break;
+         * case 9:
+         * case 10:
+         * System.out.println("Sobresaliente");
+         * break;
+         * default:
+         * System.out.println("La nota debe estar entre 0 y 10.");
+         * }
+         */
+
+        /*
+         * // SOLUCIÓN SWITCH CON OPERADOR FLECHA
+         * switch (nota) {
+         * case 0, 1, 2, 3, 4 ->
+         * System.out.println("Insuficiente");
+         * case 5 ->
+         * System.out.println("Suficiente");
+         * case 6 ->
+         * System.out.println("Bien");
+         * case 7, 8 ->
+         * System.out.println("Notable");
+         * case 9, 10 ->
+         * System.out.println("Sobresaliente");
+         * default ->
+         * System.out.println("La nota debe estar entre 0 y 10.");
+         * }
+         */
         if (nota < 0 || nota > 10) {
             System.out.println("La nota debe estar entre 0 y 10.");
         } else if (nota >= 0 && nota <= 4) {

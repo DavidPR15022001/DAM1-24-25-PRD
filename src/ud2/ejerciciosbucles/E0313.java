@@ -10,11 +10,10 @@ public class E0313 {
         int condicionados = 0;
         int suspensos = 0;
 
-
         Scanner sc = new Scanner(System.in);
         System.out.println("Escribe " + NUM_NOTAS + " notas: ");
 
-        for(int i = 1; i <= NUM_NOTAS; i++){
+        for (int i = 1; i <= NUM_NOTAS; i++) {
             int nota = sc.nextInt();
             switch (nota) {
                 case 5, 6, 7, 8, 9, 10 -> aprobados++;

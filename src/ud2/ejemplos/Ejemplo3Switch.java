@@ -15,10 +15,14 @@ public class Ejemplo3Switch {
         B = sc.nextInt();
         System.out.print("Introduzca un operador (+,-,*,/):");
         operador = (char) System.in.read();
-        
+
         sc.nextLine();
         operador = sc.nextLine().charAt(0);
-
+        /*
+         * ALTERNATIVA PARA LEER EL operador
+         * sc.nextLine();
+         * operador = sc.nextLine().charAt(0);
+         */
         sc.close();
         switch (operador) {
             case '-':
