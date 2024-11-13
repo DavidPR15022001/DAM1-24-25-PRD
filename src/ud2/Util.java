@@ -10,7 +10,7 @@ public class Util {
                 System.out.print("* ");
             }
             System.out.println("");
-        }
+        } 
     }
 
     public static void imprimirTrianguloRectanguloInverso(int n) {
@@ -19,24 +19,10 @@ public class Util {
                 System.out.print("* ");
             }
             System.out.println("");
-        }
+        } 
     }
 
-    // método que muestra un String rodeado por un borde
-    public static void cajaTexto(String str, char ch) {
-        int n = str.length(); // longitud del String
 
-        imprimirLinea(n, ch);
-        System.out.println(ch + " " + str + " " + ch); // cadena con un borde en cada lado
-        imprimirLinea(n, ch);
-    }
-
-    public static void imprimirLinea(int n, char ch) {
-        for (int i = 1; i <= n + 4; i++) { // borde de arriba
-            System.out.print(ch);
-        }
-        System.out.println();
-    }
 
     public static boolean esPar(int n) {
         return n % 2 == 0;
@@ -98,13 +84,14 @@ public class Util {
 
         imprimirTrianguloRectanguloInverso(8);
 
+
         double notaDouble = 6.7;
         System.out.println(notaEnTexto((int) notaDouble));
         int notaInt = 8;
         System.out.println(notaEnTexto(notaInt));
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Número / Año: ");
+        System.out.print("Número / Anho: ");
         int n = sc.nextInt();
         sc.close();
 
