@@ -1,6 +1,7 @@
 package ud2.ejemplos;
 
-import java.util.Scanner;
+// programa que lee una nota y escribe la calificación correspondiente
+import java.util.*;
 
 public class EjemploIfAnidados2 {
     public static void main(String[] args) {

@@ -1,24 +1,27 @@
 package ud2.ejemplos;
 
-import java.util.Scanner;
-
+/*
+ * Programa que lee números hasta que se lee un negativo y muestra la
+ * suma de los números leídos 
+ */
+import java.util.*;
 public class EjemploWhile1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int num;
-        int suma = 0;
+        int num;       //variable que contiene el número introducido
+        int suma = 0;  //variable donde acumularemos la suma de los números                                       
 
         System.out.print("Introduzca un número ( < 0 para finalizar): ");
-        num = sc.nextInt();
+        num = sc.nextInt(); //lectura del primer número
 
-        while (num >= 0) {
-            suma += num;
-            System.out.print("Introduzca un número ( < 0 para finalizar): ");
-            num = sc.nextInt();
-        }
-
+        while (num >= 0){ //inicio del bucle while                          
+               suma += num; //se suma el número introducido
+               System.out.print("Introduzca un número ( < 0 para finalizar): ");                                  
+               num = sc.nextInt(); //lectura del siguiente número
+        } //fin del bucle while
+        
         sc.close();
 
-        System.out.println("La suma es: " + suma);
+        System.out.println("La suma es: " + suma ); //se muestra la suma
     }
 }

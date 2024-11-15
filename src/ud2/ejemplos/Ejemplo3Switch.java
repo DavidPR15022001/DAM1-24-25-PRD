@@ -1,7 +1,8 @@
 package ud2.ejemplos;
 
-import java.io.IOException;
-import java.util.Scanner;
+//Programa que pide dos números y un operador y muestra el resultado de la operación                              
+import java.util.*;
+import java.io.*;
 
 public class Ejemplo3Switch {
     public static void main(String[] args) throws IOException {
@@ -15,14 +16,12 @@ public class Ejemplo3Switch {
         B = sc.nextInt();
         System.out.print("Introduzca un operador (+,-,*,/):");
         operador = (char) System.in.read();
-
+        
+        /* ALTERNATIVA PARA LEER EL operador
         sc.nextLine();
         operador = sc.nextLine().charAt(0);
-        /*
-         * ALTERNATIVA PARA LEER EL operador
-         * sc.nextLine();
-         * operador = sc.nextLine().charAt(0);
          */
+
         sc.close();
         switch (operador) {
             case '-':

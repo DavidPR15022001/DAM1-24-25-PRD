@@ -16,4 +16,5 @@ public class E0109 {
 
         System.out.println("Es par? " + esPar);
     }
+
 }

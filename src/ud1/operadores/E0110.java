@@ -24,5 +24,6 @@ public class E0110 {
         podemosSalir = recados || (!tareas && !llueve);
 
         System.out.println("Podemos salir? " + podemosSalir);
+
     }
 }

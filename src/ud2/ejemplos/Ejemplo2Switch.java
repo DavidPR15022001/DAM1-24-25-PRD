@@ -1,5 +1,6 @@
 package ud2.ejemplos;
 
+// Programa que pide un nombre de mes y muestra el número de días correspondiente                                 
 import java.util.Scanner;
 
 public class Ejemplo2Switch {

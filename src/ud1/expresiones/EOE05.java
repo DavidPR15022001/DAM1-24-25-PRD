@@ -2,6 +2,7 @@ package ud1.expresiones;
 
 public class EOE05 {
     public static void main(String[] args) {
+        // Declaración de variables y constantes
         int i = 8, j = 5;
         float x = 0.005F, y = -0.01F;
         char c = 'c', d = 'd';
@@ -86,5 +87,7 @@ public class EOE05 {
 
         System.out.print("Z: ");
         System.out.println((i - 3 * j) % (c + 2 * d) / (x - y) >= 0);
+
     }
+
 }

@@ -1,6 +1,9 @@
 package ud2.ejemplos;
 
-import java.util.Scanner;
+/*
+ * Programa que pide una nota por teclado y muestra si se ha aprobado o no
+ */
+import java.util.*;
 
 public class EjemploIfElse {
     public static void main(String[] args) {

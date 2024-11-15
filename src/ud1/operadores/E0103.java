@@ -8,12 +8,16 @@ public class E0103 {
 
         byte edad;
 
+        // Pedir la edad al usuario
         System.out.print("Escribe tu edad: ");
         edad = sc.nextByte();
         sc.close();
 
+
+        // Calcular la nueva edad
         edad++;
 
+        // Mostrar salida
         System.out.println("El año que viene tendrás " + edad + " años.");
     }
 }

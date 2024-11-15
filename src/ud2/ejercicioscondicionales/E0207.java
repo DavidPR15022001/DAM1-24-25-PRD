@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class E0207 {
     public static void main(String[] args) {
-
+        // Declaración de variables y constantes
         int a, b, c;
 
+        // Entrada de datos
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce tres números:");
         a = sc.nextInt();
@@ -16,6 +17,7 @@ public class E0207 {
 
         System.out.print("Números ordenados de mayor a menor: ");
 
+        // SOLUCIÓN CON IFS ANIDADOS
         if (a > b) {
             if (a > c) {
                 if (b > c) {
@@ -38,4 +40,5 @@ public class E0207 {
             }
         }
     }
+
 }

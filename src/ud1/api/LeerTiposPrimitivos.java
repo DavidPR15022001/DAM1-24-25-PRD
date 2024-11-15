@@ -16,12 +16,14 @@ public class LeerTiposPrimitivos {
         int varInt;
         System.out.print("Escribe un dato de tipo int: ");
         varInt = sc.nextInt();
-        System.out.println("Has introducido el valor " + varInt);
+        System.out.println("Has introducido el valor " + varInt); 
+        
 
         float varFloat;
         System.out.print("Escribe un dato de tipo float: ");
         varFloat = sc.nextFloat();
         System.out.println("Has introducido el valor " + varFloat);
+        
 
         char varChar;
         System.out.print("Escribr un carácter: ");
@@ -43,6 +45,6 @@ public class LeerTiposPrimitivos {
         System.out.println("Has introducido el valor " + varBoolean);
 
         sc.close();
-    }
 
+    }
 }

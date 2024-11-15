@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class EP0217_Bis {
     public static void main(String[] args) {
+        // Genera un número entero entre 1 y 99
         int MAX = 99;
         int MIN = 1;
 
@@ -24,5 +25,6 @@ public class EP0217_Bis {
         } else {
             System.out.printf("ERROR!! El resultado era %d%n", num1 + num2);
         }
+
     }
 }

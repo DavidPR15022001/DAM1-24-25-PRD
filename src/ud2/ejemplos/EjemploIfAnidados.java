@@ -1,6 +1,7 @@
 package ud2.ejemplos;
 
-import java.util.Scanner;
+//Programa que muestra un saludo distinto según la hora introducida
+import java.util.*;
 
 public class EjemploIfAnidados {
     public static void main(String[] args) {

@@ -1,5 +1,5 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World! My Name is PRD");
+        System.out.println("Ola Mundo!! \n Benvid@ ao repositorio de DAM1 do curso 24-25");
     }
 }

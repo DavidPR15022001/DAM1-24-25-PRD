@@ -1,5 +1,6 @@
 package ud2.ejemplos;
 
+// Programa que lee un número entre 1 y 10 
 import java.util.Scanner;
 
 public class EjemploDoWhile2 {

@@ -1,6 +1,8 @@
 package ud2.ejemplos;
 
-import java.util.Scanner;
+//Programa que pide un número de mes y muestra 
+//el nombre de mes correspondiente
+import java.util.*;
 
 public class EjemploSwitch {
     public static void main(String[] args) {
@@ -9,7 +11,7 @@ public class EjemploSwitch {
         System.out.print("Introduzca un número de mes: ");
         mes = sc.nextInt();
         sc.close();
-        switch (mes) {
+        switch (mes) { // inicio del switch
             case 1:
                 System.out.println("ENERO");
                 break;
@@ -48,7 +50,7 @@ public class EjemploSwitch {
                 break;
             default:
                 System.out.println("Mes no válido");
-        }
+        } // fin del switch
 
         System.out.println("FIN DEL PROGRAMA");
     }

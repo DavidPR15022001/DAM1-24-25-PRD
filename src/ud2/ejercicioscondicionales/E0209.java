@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class E0209 {
     public static void main(String[] args) {
-        
         int numero;
         int cifras = 1;
 
@@ -23,6 +22,7 @@ public class E0209 {
             cifras = 2;
         }
 
-        System.out.println("Número de cifras: " + cifras); 
+        System.out.println("Número de cifras: " + cifras);
+
     }
 }

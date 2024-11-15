@@ -2,6 +2,7 @@ package ud1.expresiones;
 
 public class EOE03 {
     public static void main(String[] args) {
+        // Declaración de variables y constantes
         int a=8, b=3, c=-5;
 
         System.out.println(a + b + c);
@@ -19,4 +20,5 @@ public class EOE03 {
         System.out.println((a - 3 * b) % (c + 2 * a) / (a - c));
         System.out.println(a - b - c * 2);
     }
+
 }

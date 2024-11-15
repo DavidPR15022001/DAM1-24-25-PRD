@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class E0211 {
     public static void main(String[] args) {
+        System.out.print("Introduce el número de día de la semana: ");
+
         Scanner sc = new Scanner(System.in);
         int dia = sc.nextInt();
         sc.close();

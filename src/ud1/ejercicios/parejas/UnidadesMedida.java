@@ -1,10 +1,13 @@
-//Dario Costas: Piloto ; David Padin: Copiloto//
-
+// Dario Costas Lorenzo (piloto) y David Padín Ruibal (copiloto)
 package ud1.ejercicios.parejas;
 
 import java.util.Scanner;
 
+/**
+ * UdsMedida
+ */
 public class UnidadesMedida {
+
     public static void main(String[] args) {
         double ht;
         double m2CamposFutbol = 105 * 70;

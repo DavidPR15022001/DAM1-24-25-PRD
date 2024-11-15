@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class E0203 {
     public static void main(String[] args) {
-
+        // Declaración de variables y constantes
         int num1, num2;
 
+        // Entrada de datos
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce un número entero:");
         num1 = sc.nextInt();
@@ -14,10 +15,11 @@ public class E0203 {
         num2 = sc.nextInt();
         sc.close();
 
+        // Proceso y Salida
         if (num1 == num2) {
             System.out.println("son iguales, te pedí números distintos....");
         } else {
-
+            // Imprime el mayor
             if (num1 > num2) {
                 System.out.println(num1 + " es el mayor.");
             } else {
@@ -26,4 +28,5 @@ public class E0203 {
         }
         System.out.println("Fin del programa");
     }
+
 }

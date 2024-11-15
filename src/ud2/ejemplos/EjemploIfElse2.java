@@ -1,6 +1,9 @@
 package ud2.ejemplos;
 
-import java.util.Scanner;
+/*
+ * Programa que pide un número por teclado y muestra si es par o impar                                            
+ */
+import java.util.*;
 
 public class EjemploIfElse2 {
     public static void main(String[] args) {

@@ -20,4 +20,5 @@ public class EjemploSwitchYieldNota {
 
         System.out.println(msg);
     }
+
 }

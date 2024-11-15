@@ -17,5 +17,7 @@ public class E0108 {
         String textoSalida = edad >= 18 ? "Eres mayor de edad" : "Aún no eres mayor de edad";
 
         System.out.println(textoSalida);
+
+        //System.out.println("Mayor de edad? " + mayorDeEdad);
     }
 }

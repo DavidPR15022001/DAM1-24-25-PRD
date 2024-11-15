@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Factura {
     public static void main(String[] args) {
-
+        // Declaración de variables y constantes
         final double IVA = 0.21;
         final double UMBRAL_DESCUENTO = 100;
         final double DESCUENTO = 0.05;
@@ -17,6 +17,7 @@ public class Factura {
         double descuento;
         double precioFinal;
 
+        // Entrada de datos
         Scanner sc = new Scanner(System.in);
         System.out.print("Precio del producto: ");
         precioProducto = sc.nextDouble();
@@ -24,6 +25,7 @@ public class Factura {
         numUnidades = sc.nextInt();
         sc.close();
 
+        // Proceso
         precioSinIva = precioProducto * numUnidades;
         iva = precioSinIva * IVA;
         precioConIva = precioSinIva + iva;
@@ -35,6 +37,8 @@ public class Factura {
             precioFinal = precioConIva;
         }
 
-        System.out.printf("Precio Final: %.2f euros %n", precioFinal);
+        // Salida
+        System.out.printf("Precio Final: %.2f € %n", precioFinal);
     }
+
 }

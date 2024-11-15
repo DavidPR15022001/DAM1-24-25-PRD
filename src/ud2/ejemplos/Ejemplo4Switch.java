@@ -1,6 +1,6 @@
 package ud2.ejemplos;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Ejemplo4Switch {
     public static void main(String[] args) {

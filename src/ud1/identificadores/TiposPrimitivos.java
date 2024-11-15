@@ -45,5 +45,6 @@ public class TiposPrimitivos {
         System.out.println("double\t| 64\t\t| " + varDouble);
         System.out.println("char\t| 16\t\t| " + varChar);
         System.out.println("boolean\t| 1\t\t| " + varBoolean);
+
     }
 }

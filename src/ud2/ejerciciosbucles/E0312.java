@@ -15,10 +15,12 @@ public class E0312 {
                 haySuspensos = true;
         }
         sc.close();
+
         if (haySuspensos) {
-            System.out.println("Hubo suspensos... :");
+            System.out.println("Hubo suspensos... :(");
         } else {
-            System.out.println("Ningún suspenso!!! :");
+            System.out.println("Ningún suspenso!!! :)");
         }
+
     }
 }

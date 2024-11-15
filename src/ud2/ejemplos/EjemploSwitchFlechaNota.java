@@ -19,4 +19,5 @@ public class EjemploSwitchFlechaNota {
             default -> System.out.println("Nota inválida");
         }
     }
+
 }

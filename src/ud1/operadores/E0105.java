@@ -11,5 +11,6 @@ public class E0105 {
         x--;
 
         System.out.println(x);
+
     }
 }

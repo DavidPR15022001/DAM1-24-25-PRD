@@ -8,12 +8,13 @@ public class E0311_Factorial {
         System.out.print("Número: ");
         int n = sc.nextInt();
         sc.close();
-        
+
         int factorial = 1;
-        for (int i = n; i > 1; i--) {
+        for (int i = n; i > 1; i--){
             factorial *= i;
         }
 
         System.out.printf("El factorial de %s es %s %n", n, factorial);
+
     }
 }

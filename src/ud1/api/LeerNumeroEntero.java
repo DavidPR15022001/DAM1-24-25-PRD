@@ -11,7 +11,7 @@ public class LeerNumeroEntero {
         numero = sc.nextInt();
 
         System.out.println("Has introducido el número " + numero);
-
+        
         sc.close();
     }
 }

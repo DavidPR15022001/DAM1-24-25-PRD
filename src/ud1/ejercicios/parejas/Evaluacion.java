@@ -1,4 +1,6 @@
-//David Padin: Piloto ; Dario Costas: Copiloto//
+/* Pilot: Rodrigo Pazos
+ * Copilot: Rocío Rial
+ */
 
 package ud1.ejercicios.parejas;
 
@@ -6,6 +8,7 @@ import java.util.Scanner;
 
 public class Evaluacion {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
         System.out.println("El programa funciona? (0-4) ");
