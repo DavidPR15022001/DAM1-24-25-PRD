@@ -1,17 +1,25 @@
 package ud2.ejerciciosfunciones;
 
 public class E0406 {
-    public static boolean esPrimo(int n) {
-        boolean esPrimo = true;
-        for (int i =2; i < n -1; i++) {
-            if(n % i == 0)
-            esPrimo = false;
-        }
-        return esPrimo;
-    }
     public static void main(String[] args) {
-        for (int i = 1; i <= 20; i++) {
-            System.out.println(i + (esPrimo (i) ? " " : " no ") + "primo.");
-        }
+
+        // Salida
+        System.out.println(esPrimo(23));
+        System.out.println(esPrimo(110));
     }
+    
+    static boolean esPrimo(int n) {
+        boolean primo = true;
+        int i = 2;
+    
+        while (i <= n/2 && primo) {
+            if (n % i == 0) {
+                primo = false;
+            }
+            i++;
+        }
+    
+        return primo;
+    }
+        
 }
