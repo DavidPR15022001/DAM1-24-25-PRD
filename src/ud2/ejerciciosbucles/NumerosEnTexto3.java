@@ -1,6 +1,6 @@
 package ud2.ejerciciosbucles;
 
-public class NumerosEnTexto {
+public class NumerosEnTexto3 {
     public static void main(String[] args) {
         for (int i = 1; i <= 99; i++) {
             System.out.println(i + " - " + numeroATexto(i));
@@ -64,8 +64,9 @@ public class NumerosEnTexto {
             case 6: strUnidades = "seis"; break;
             case 7: strUnidades = "siete"; break;
             case 8: strUnidades = "ocho"; break;
-            case 9: strUnidades = "nueve"; break;            
+            case 9: strUnidades = "nueve"; break;
         }
-        return strUnidades;                    
+        return strUnidades;
     }
 }
+

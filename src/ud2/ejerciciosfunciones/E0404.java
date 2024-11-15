@@ -13,8 +13,7 @@ public class E0404 {
 
     static int maximo(int a, int b) {
         return a > b ? a : b;
-    }   
-   
+    }
 
     @Test
     public void testMaximo() {
