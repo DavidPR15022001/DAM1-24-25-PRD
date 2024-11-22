@@ -6,6 +6,11 @@ public class Persona {
     private String apellido1;
     private String apellido2;
     private int edad;
+    private double estatura = 1.80;
+    private final String dni = null;
+
+    public static int contadorPersonas;
+
     //Métodos
     public void inicializar(String n, String a1, String a2, int e){
     nombre = n;
@@ -22,5 +27,17 @@ public class Persona {
     }else{
     return false;
     }
+    }
+
+    public void cumplirAnhos(){
+        edad++;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public static void incrementarContador(){
+        contadorPersonas++;
     }
     }
