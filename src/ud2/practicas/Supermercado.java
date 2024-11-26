@@ -16,9 +16,10 @@ public class Supermercado {
             precio = sc.nextDouble();
             System.out.printf("Introduce el precio del producto en euros %.2f", precio);
             cantidad = sc.nextInt();
-            System.out.printf("Introduce la cantidad de unidades del producto", cantidad);
+            System.out.println("Introduce la cantidad de unidades del producto");
         } catch (InputMismatchException e) {
             System.out.println("¡¡ERROR!! debe introducirse un dato numérico");
+            
 
         }
 
