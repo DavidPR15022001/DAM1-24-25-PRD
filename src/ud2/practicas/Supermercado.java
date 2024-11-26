@@ -7,7 +7,7 @@ public class Supermercado {
     public static void main(String[] args) {
         double precio;
         int cantidad;
-        double precioTotal;
+
         Scanner sc= new Scanner(System.in);
         
         
@@ -16,9 +16,10 @@ public class Supermercado {
             precio = sc.nextDouble();
             System.out.printf("Introduce el precio del producto en euros %.2f", precio);
             cantidad = sc.nextInt();
-            System.out.println("Introduce la cantidad de unidades del producto");
+            System.out.printf("Introduce la cantidad de unidades del producto", cantidad);
         } catch (InputMismatchException e) {
-            // TODO: handle exception
+            System.out.println("¡¡ERROR!! debe introducirse un dato numérico");
+
         }
 
 
