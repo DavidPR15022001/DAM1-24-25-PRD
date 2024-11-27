@@ -1,7 +1,7 @@
 package ud3.apuntes;
 
 public class Persona {
-    // Datos
+    //Datos 
     private String nombre;
     private String apellido1;
     private String apellido2;
@@ -10,25 +10,49 @@ public class Persona {
     private final String dni = null;
 
     public static int contadorPersonas;
+    
 
-    // Métodos
-    public void inicializar(String n, String a1, String a2, int e) {
-        nombre = n;
-        apellido1 = a1;
-        apellido2 = a2;
-        edad = e;
+    // CONSTRUCTORES
+    Persona() {
+    }    
+
+    Persona(String nombre) {
+        this(nombre, 0, 0.4);        
+    }    
+    Persona (String nombre, int edad, double estatura) {
+        this.nombre = nombre; //asigna el parámetro al atributo
+        this.edad = edad;
+        this.estatura = estatura;
+     }
+  
+    Persona(String nombre, int edad) {                                                                     
+        this.nombre = nombre;
+        this.edad = edad;
+        contadorPersonas++;
+    }    
+
+
+
+    // Otros Métodos
+
+    public void inicializar(String n, String a1, String a2, int e){                                            
+           nombre = n;
+           apellido1 = a1;
+           apellido2 = a2;
+           edad = e;
+           contadorPersonas++;
     }
-
+    
     public String nombreCompleto() {
-        return nombre + " " + apellido1 + " " + apellido2;
+           return nombre + " " + apellido1 + " " + apellido2;
     }
-
+    
     public boolean esMayorEdad() {
-        if (edad >= 18) {
-            return true;
-        } else {
-            return false;
-        }
+           if (edad >= 18){
+               return true;
+           }else{
+               return false;
+           }
     }
 
     public void cumplirAnhos() {
@@ -39,7 +63,32 @@ public class Persona {
         return edad;
     }
 
-    public static void incrementarContador() {
-        contadorPersonas++;
+
+
+    public double getEstatura() {
+        return estatura;
     }
+
+    public void setEstatura(double estatura) {
+
+        if (estatura > 0)
+            this.estatura = estatura;
+    }
+
+    void crecer(double incremento) {
+        estatura += incremento; 
+    }
+    
+    
+
+    public static void incrementarContador(){
+        contadorPersonas++;
+    }    
+
+    void saludar() {
+        System.out.println("Hola. Mi nombre es " + nombre);
+        System.out.println("Encantado de conocerte.");
+    }
+
+
 }

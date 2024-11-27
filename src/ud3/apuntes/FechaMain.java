@@ -14,12 +14,12 @@ public class FechaMain {
         m = sc.nextInt();
         System.out.println("año: ");
         a = sc.nextInt();
-        sc.close();
         fecha.asignarFecha(d, m, a);
         if (fecha.fechaCorrecta()) {
-            System.out.println(fecha.getDia() + "-" + fecha.getMes() + "-" + fecha.getAño());
+            System.out.println(fecha.getDia() + "-" + fecha.getMes()+ "-" + fecha.getAño());                      
         } else {
             System.out.println("Fecha no valida");
         }
     }
-}
+}    
+
