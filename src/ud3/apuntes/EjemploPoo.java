@@ -45,10 +45,8 @@ public class EjemploPoo {
       Persona.incrementarContador();
       System.out.println(Persona.contadorPersonas);
 
-
       Persona p4 = new Persona("Claudia", 8, 1.2);
-      Persona p5 = new Persona ("Pepe");
-      
+      Persona p5 = new Persona("Pepe");
 
       System.out.println("FIN");
    }
