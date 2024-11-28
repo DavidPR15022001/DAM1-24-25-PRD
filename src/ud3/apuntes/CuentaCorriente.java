@@ -2,7 +2,7 @@ package ud3.apuntes;
 
 public class CuentaCorriente {
     String dni;
-    String nombre;
+    public String nombre;
     private double saldo;
 
 
@@ -12,7 +12,7 @@ public class CuentaCorriente {
         this.saldo = saldo < 0 ? 0 : saldo;
     }
 
-    CuentaCorriente(String dni, String nombre) {
+    public CuentaCorriente(String dni, String nombre) {
         this(dni, nombre, 0);
     }
     
