@@ -1,7 +1,5 @@
 package ud3.apuntes;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 public class E0708 {
@@ -17,6 +15,9 @@ public class E0708 {
         miRadio.display();
         miRadio.sintonizarMemoria1();
         miRadio.display();
+
+        Sintonizador miRadioError = new Sintonizador(200);
+        
 
     }
 
