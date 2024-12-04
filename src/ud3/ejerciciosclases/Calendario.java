@@ -25,13 +25,13 @@ public class Calendario {
         mes++;
         if (mes > 12) {
             mes = 1;
-            anho++;
+            incrementarAño(1);
         }
     }
 
-    void incrementarAño(int cantidad) {
+    void incrementarAño(int cantidad) {        
         anho += cantidad;
-        if (anho == 0)
+        if (anho == 0) 
             anho = cantidad < 0 ? -1 : 1;
     }
 
@@ -53,23 +53,54 @@ public class Calendario {
             default:
                 return 31;
         }
-    }
-        
+    }        
 
     public static boolean esBisiesto(int anho) {
         return ((anho % 4 == 0) && (anho % 100 != 0) || (anho % 400 == 0));                                          
     }
 
     public static boolean fechaCorrecta(int anho, int mes, int dia) {
-        boolean diaCorrecto, mesCorrecto, anyoCorrecto;
-        anyoCorrecto = (anho != 0);
+        boolean diaCorrecto, mesCorrecto, anhoCorrecto;
+        anhoCorrecto = (anho != 0);
         mesCorrecto = (mes >= 1) && (mes <= 12);
         diaCorrecto = (dia >= 1 && dia <= diasMes(mes, anho));
 
-        return diaCorrecto && mesCorrecto && anyoCorrecto;
+        return diaCorrecto && mesCorrecto && anhoCorrecto;
     }    
     
+
+    public boolean iguales(Calendario otraFecha) {
+        return dia == otraFecha.dia && mes == otraFecha.mes && anho == otraFecha.anho;
+        /*boolean iguales = true;
+            if (dia != otraFecha.dia)
+                iguales = false;
+            else if (mes != otraFecha.mes){
+                iguales = false;
+            } else if (anho != otraFecha.anho)
+                iguales = false;
+
+        return iguales;*/
+    }
+
+
+
     public void mostrar() {
         System.out.println(dia + "/" + mes + "/" + anho);
     }
+
+    public int getAnho() {
+        return anho;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public int getDia() {
+        return dia;
+    }
+
+
+
+    
 }
