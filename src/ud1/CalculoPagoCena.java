@@ -1,4 +1,4 @@
-package ud1.pruebas;
+package ud1;
 
 public class CalculoPagoCena {
     public static void main(String[] args) {
