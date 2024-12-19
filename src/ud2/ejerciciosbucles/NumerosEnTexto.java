@@ -2,6 +2,7 @@ package ud2.ejerciciosbucles;
 
 public class NumerosEnTexto {
     public static void main(String[] args) {
+        System.out.println(numeroATexto(26));
         for (int i = 1; i <= 99; i++) {
             System.out.println(i + " - " + numeroATexto(i));
         }

@@ -16,7 +16,6 @@ public class E0406_Primo {
     public static void main(String[] args) {
         System.out.println(esPrimo(60));
 
-
         for (int i = 1; i <= 20; i++) {
             System.out.println(i + (esPrimo(i) ? " " : " no ") + " primo.");
         }

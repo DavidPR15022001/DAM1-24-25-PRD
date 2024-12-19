@@ -7,13 +7,13 @@ public class E0403v2 {
         areaVolumenCilindro(2, 2.5, 3.8);
         areaVolumenCilindro(3, 2.5, 3.8);
     }
-    
+
     static void areaVolumenCilindro(int opcion, double radio, double altura) {
         // Cuerpo de la función
-    
+
         switch (opcion) {
             case 1 ->
-                // Calcular y mostrar area                
+                // Calcular y mostrar area
                 System.out.println("Área = " + areaCilindro(radio, altura));
             case 2 ->
                 // Calcular y mostrar volumen
@@ -28,8 +28,8 @@ public class E0403v2 {
         return 2 * Math.PI * radio * (altura + radio);
     }
 
-    static double volumenCilindro(double radio, double altura){
+    static double volumenCilindro(double radio, double altura) {
         return Math.PI * Math.pow(radio, 2) * altura;
     }
-        
+
 }
