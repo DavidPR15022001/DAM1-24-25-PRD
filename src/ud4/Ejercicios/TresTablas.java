@@ -1,4 +1,4 @@
-package ud4.Ejercicios;
+package ud4.ejercicios;
 
 public class TresTablas {
     public static void main(String[] args) {
