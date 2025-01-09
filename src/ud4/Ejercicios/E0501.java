@@ -3,14 +3,13 @@ package ud4.ejercicios;
 import java.util.Random;
 
 public class E0501 {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         // Crea una tabla de longitud 10 que se inicializará con números aleatorios comprendidos entre 1 y 100.
         int[] t = arrayAleatorio(10, 1, 100);
         // Muestra la suma de todos los números aleatorios que se guardan en la tabla.
         System.out.println("La suma es " + sumar(t));
-    
     }
-
+    */
     public static int[] arrayAleatorio(int n, int rndInicio, int rndFin) {
         int[] t = new int[n];
         Random rnd = new Random();

@@ -16,5 +16,6 @@ public class ArrayAleatorio {
             System.out.print(t[i] + " ");
         System.out.println();        
     }
+
 }
 
