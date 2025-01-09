@@ -7,8 +7,13 @@ public class E0505 {
 
         for(int i = 0; i < t.length; i++) {
             Random rnd = new Random();
-            t[i] = rnd.nextInt(fin - 2) + 2;
+            do
+                t[i] = rnd.nextInt(2, fin +1);
+            while (t[i] % 2 != 0);
         }
+
+        Arrays.sort(t);
+        
         return t;
     }
     public static void main(String[] args) {
