@@ -3,7 +3,7 @@ package ud4.arraysejercicios;
 import java.util.Arrays;
 import java.util.Random;
 
-// CARLOS DE LA TORRE ABOAL
+
 public class EP0512_Desordenar {
     static void desordenar(int t[]) {
         Random rnd = new Random();
