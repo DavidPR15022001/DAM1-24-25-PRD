@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class E0508 {
     public static void main(String[] args) {
-        int[] t = {5,2,7,9,4,1,8,5,4,2,8};
+        int[] t = {5, 2, 7, 9, 4, 1, 8, 5, 4, 2, 8};
 
         int[] pares = new int[0];
         int[] impares = new int[0];

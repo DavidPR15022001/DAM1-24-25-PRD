@@ -5,7 +5,7 @@ import java.util.Arrays;
 import ud4.ArraysUtil;
 
 public class E0507 {
-    static Integer[] sinRpetidos(Integer t[]) {
+    static Integer[] sinRepetidos(Integer t[]) {
         Integer[] sinRepetidos = new Integer[0];
         for (int i = 0; i < t.length; i++) {
             boolean repetido = false;
@@ -28,7 +28,7 @@ public class E0507 {
 
         System.out.println(Arrays.toString(t));
 
-        t = sinRpetidos(t);
+        t = sinRepetidos(t);
 
         System.out.println(Arrays.toString(t));
     }
