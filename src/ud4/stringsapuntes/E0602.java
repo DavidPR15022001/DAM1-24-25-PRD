@@ -9,7 +9,7 @@ public class E0602 {
         String frase1 = sc.nextLine();
         System.out.print("Introduzca la segunda frase: ");
         String frase2 = sc.nextLine();
-        
+        // Imprime la frase más larga
         if (frase1.length() == frase2.length()) {
             System.out.println("Las dos frases tiene la misma longitud.");
         } else if (frase1.length() > frase2.length()) {

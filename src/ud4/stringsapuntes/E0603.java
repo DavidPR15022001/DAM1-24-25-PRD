@@ -7,14 +7,15 @@ public class E0603 {
         int MAX_INTENTOS = 3;
         int intentos = 0;
         Scanner sc = new Scanner(System.in);
-
+        // LECTURA DE LA CONTRASEÑA
         System.out.println("Introduzca la contraseña: ");
         String password = sc.nextLine();
-        sc.close();
-        
-        for (int i = 0; i < 50; i ++)
+
+        // Imprime líneas en blandco para "ocultar" la contraseña
+        for (int i = 0; i < 50; i++)
             System.out.println();
 
+        // LECTURA DE LOS INTENTOS
         System.out.println("Introduzca la contraseña repetidamente hasta acertar (máximo " + MAX_INTENTOS + " intentos): ");
         String passwordJugador;
         do {
