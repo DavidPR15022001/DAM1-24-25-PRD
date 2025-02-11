@@ -22,7 +22,7 @@ public class RegistroTiempos {
             entrada = sc.nextLine();
             LocalTime nuevoTiempo = LocalTime.now();
             int segundosTranscurridos = nuevoTiempo.toSecondOfDay() - inicio.toSecondOfDay();
-            tiempos = Arrays.copyOf(tiempos, tiempos.length +1);
+            tiempos = Arrays.copyOf(tiempos, tiempos.length + 1);
             tiempos[tiempos.length - 1] = segundosTranscurridos;
             System.out.println("Segundos transcurridos = " + segundosTranscurridos);
             System.out.println("Hora actual: " + LocalTime.now());
