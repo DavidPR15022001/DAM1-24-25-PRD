@@ -1,4 +1,4 @@
-package ud5.clasesejercicios;
+package ud5.clasesejercicios.EP0721;
 
 import java.util.Arrays;
 

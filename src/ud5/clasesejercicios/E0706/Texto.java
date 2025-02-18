@@ -1,4 +1,4 @@
-package ud5.clasesejercicios;
+package ud5.clasesejercicios.E0706;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
