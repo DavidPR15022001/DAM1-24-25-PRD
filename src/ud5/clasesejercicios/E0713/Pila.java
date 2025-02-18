@@ -1,5 +1,5 @@
 package ud5.clasesejercicios.E0713;
-
+import ud5.clasesejercicios.E0712.Lista;
 public class Pila {
     private Lista lista;
 
