@@ -1,24 +1,21 @@
-package ud3.apuntes;
+package ud5.apuntesherencia;
 
 public class Persona {
     // Datos
-    private String nombre;
-    private String apellido1;
+    String nombre;
+    String apellido1;
     private String apellido2;
-    private int edad;
-    private double estatura = 1.80;
-    private final String dni = null;
+    int edad;
+    double estatura = 1.80;
+    final String dni = null;
     enum Sexo {HOMBRE, MUJER, NO_BINARIO}
-    private Sexo sexo;
-    DiaDeLaSemana diaPreferido;
+    Sexo sexo;
 
     public static int contadorPersonas;
 
     // CONSTRUCTORES
     public Persona() {
     }
-
-    
 
     public Persona(String nombre, Sexo sexo) {
         this.nombre = nombre;
@@ -47,6 +44,24 @@ public class Persona {
     }
 
     // Otros Métodos
+
+
+    
+    public void mostrarDatos() {
+        System.out.println("PERSONA:");
+        System.out.println(nombre);
+        System.out.println(edad);
+        System.out.println(estatura);
+    }
+
+
+    public String getApellido2() {
+        return apellido2;
+    }
+
+    public void setApellido2(String apellido2) {
+        this.apellido2 = apellido2;
+    }
 
     public void inicializar(String n, String a1, String a2, int e) {
         nombre = n;
@@ -85,7 +100,7 @@ public class Persona {
             this.estatura = estatura;
     }
 
-    public void crecer(double incremento) {
+    void crecer(double incremento) {
         estatura += incremento;
     }
 
@@ -98,7 +113,7 @@ public class Persona {
         contadorPersonas++;
     }
 
-    public void saludar() {
+    void saludar() {
         System.out.println("Hola. Mi nombre es " + nombre);
         System.out.println("Encantado de conocerte.");
     }
