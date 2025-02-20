@@ -2,7 +2,7 @@ package ud5.apuntesherencia;
 
 public class Empleado extends Persona{
     double salario;
-    String estatura;
+    double estatura;
 
     Empleado(){
 
@@ -13,7 +13,7 @@ public class Empleado extends Persona{
         this.salario = salario;
     }
 
-    public Empleado(String nombre, int edad, String estatura, double salario) {
+    public Empleado(String nombre, int edad, double estatura, double salario) {
         this.estatura = estatura;
         this.salario = salario;        
         super(nombre, edad);
@@ -32,7 +32,7 @@ public class Empleado extends Persona{
 
     public static void main(String[] args) {
         Empleado maria = new Empleado("María", 30000);
-        Empleado pepe = new Empleado("Pepe", 25, "XL", 30000);
+        Empleado pepe = new Empleado("Pepe", 25, 1.80, 30000);
 //        System.out.println(pepe.edad);
 //        pepe.saludar();
 
