@@ -234,7 +234,19 @@ public class Personaje {
         return daño;
     }
 
+
+    public int atacar(Monstruo m) {
+        Random rnd = new Random();
+        int dano = Math.max(0, fuerza - m.getDefensa() + rnd.nextInt(10));
+        System.out.println(this.nombre + " ataca a " + m.getNombre() + " y le hace " + dano + " de daño.");
+        m.perderVida(dano); // El monstruo pierde vida
+        return dano;
+    }
     
+    public int getDefensa() {
+        return (fuerza + agilidad) / 2;
+    }
+
     public static void main(String[] args) {
 
         try {

@@ -25,6 +25,14 @@ public class Monstruo {
         return dano;
     }
 
+    public int atacar(Personaje p) {
+        Random rnd = new Random();
+        int dano = Math.max(0, ataque - p.getDefensa() + rnd.nextInt(10));
+        System.out.println(this.nombre + " ataca a " + p.getClass().getSimpleName() + " y le hace " + dano + " de daño.");
+        p.perderVida(dano);
+        return dano;
+    }
+
     public void mostrar() {
         System.out.println(toString());
     }
@@ -44,5 +52,20 @@ public class Monstruo {
 
     public int getPuntosVida() {
         return puntosVida;
+    }
+
+    public static Monstruo generaMonstruoAleatorio() {
+        Random rnd = new Random();
+        int probabilidad = rnd.nextInt(100);
+
+        if (probabilidad < 40) {
+            return new Orco();
+        } else if (probabilidad < 70) {
+            return new Aranha();
+        } else if (probabilidad < 90) {
+            return new Troll();
+        } else {
+            return new Dragon();
+        }
     }
 }
