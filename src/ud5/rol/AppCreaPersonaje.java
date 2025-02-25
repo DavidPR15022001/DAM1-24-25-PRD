@@ -18,7 +18,7 @@ public class AppCreaPersonaje {
         Personaje personaje = null;
         boolean ejecutar = true;
 
-        // Cargar personajes guardados si existen
+
         List<Personaje> personajesGuardados = cargarPersonajes(archivo, gson);
 
         while (ejecutar) {
@@ -26,12 +26,12 @@ public class AppCreaPersonaje {
             int opcion = obtenerOpcion();
             switch (opcion) {
                 case 1:
-                    // Crear nuevo personaje
+
                     personaje = crearPersonaje();
-                    personajesGuardados.add(personaje); // Añadir personaje a la lista
+                    personajesGuardados.add(personaje);
                     break;
                 case 2:
-                    // Editar personaje existente
+
                     if (personajesGuardados.size() > 0) {
                         editarPersonaje(personajesGuardados, gson);
                     } else {
@@ -39,15 +39,15 @@ public class AppCreaPersonaje {
                     }
                     break;
                 case 3:
-                    // Ver personajes
+
                     verPersonajes(personajesGuardados);
                     break;
                 case 4:
-                    // Guardar personajes en archivo
+
                     guardarPersonajes(personajesGuardados, archivo, gson);
                     break;
                 case 5:
-                    // Salir
+
                     ejecutar = false;
                     break;
                 default:
@@ -56,7 +56,7 @@ public class AppCreaPersonaje {
         }
     }
 
-    // Mostrar el menú
+
     private static void mostrarMenu() {
         System.out.println("\n--- MENÚ ---");
         System.out.println("1. Crear personaje");
@@ -67,7 +67,7 @@ public class AppCreaPersonaje {
         System.out.print("Seleccione una opción: ");
     }
 
-    // Obtener opción de menú
+
     private static int obtenerOpcion() {
         int opcion = -1;
         try {
@@ -78,7 +78,7 @@ public class AppCreaPersonaje {
         return opcion;
     }
 
-    // Crear un personaje
+
     private static Personaje crearPersonaje() {
         System.out.println("\nCrear un nuevo personaje:");
         System.out.print("Nombre: ");
@@ -106,7 +106,7 @@ public class AppCreaPersonaje {
         return new Personaje(nombre, raza, fuerza, agilidad, constitucion, inteligencia, intuicion, presencia);
     }
 
-    // Editar un personaje existente
+
     private static void editarPersonaje(List<Personaje> personajesGuardados, Gson gson) {
         System.out.println("\nSeleccione el personaje a editar:");
         for (int i = 0; i < personajesGuardados.size(); i++) {
@@ -161,7 +161,7 @@ public class AppCreaPersonaje {
         }
     }
 
-    // Ver personajes guardados
+
     private static void verPersonajes(List<Personaje> personajesGuardados) {
         if (!personajesGuardados.isEmpty()) {
             System.out.println("\nPersonajes guardados:");
@@ -174,12 +174,12 @@ public class AppCreaPersonaje {
         }
     }
 
-    // Cargar personajes desde archivo JSON
+
     private static List<Personaje> cargarPersonajes(File archivo, Gson gson) {
         if (archivo.exists() && archivo.isFile()) {
             try (Reader reader = new FileReader(archivo)) {
                 Personaje[] personajesArray = gson.fromJson(reader, Personaje[].class);
-                // Convertimos el array a una lista
+
                 if (personajesArray != null) {
                     List<Personaje> personajesList = new ArrayList<>();
                     for (Personaje p : personajesArray) {
@@ -191,13 +191,13 @@ public class AppCreaPersonaje {
                 System.out.println("Error al cargar personajes: " + e.getMessage());
             }
         }
-        return new ArrayList<>();  // No hay personajes guardados
+        return new ArrayList<>();
     }
 
-    // Guardar personajes en archivo JSON
+
     private static void guardarPersonajes(List<Personaje> personajes, File archivo, Gson gson) {
         try (Writer writer = new FileWriter(archivo)) {
-            // Convertir la lista de personajes a un array
+
             Personaje[] personajesArray = personajes.toArray(new Personaje[0]);
             gson.toJson(personajesArray, writer);
             System.out.println("Personajes guardados.");

@@ -22,7 +22,6 @@ public class Personaje {
 
     private static final Random rnd = new Random();
 
-    // Constructor con todos los parámetros
     public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion,
             int inteligencia, int intuicion, int presencia, int nivel, int experiencia) {
         if (fuerza < 1 || agilidad < 1 || constitucion < 1 || inteligencia < 1 ||
@@ -44,25 +43,22 @@ public class Personaje {
         this.puntosDeVida = this.puntosDeVidaMaximos;
     }
 
-    // Constructor con nombre, raza y características físicas
     public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion,
             int inteligencia, int intuicion, int presencia) {
         this(nombre, raza, fuerza, agilidad, constitucion, inteligencia, intuicion, presencia, 1, 0);
     }
 
-    // Constructor con nombre y raza (atributos físicos aleatorios)
     public Personaje(String nombre, Raza raza) {
         this(nombre, raza, getRandomStat(), getRandomStat(), getRandomStat(),
                 getRandomStat(), getRandomStat(), getRandomStat(), 1, 0);
     }
 
-    // Constructor con solo nombre (se asume que es humano y atributos aleatorios)
     public Personaje(String nombre) {
         this(nombre, Raza.HUMANO);
     }
 
     private static int getRandomStat() {
-        return rnd.nextInt(100) + 1; // Número aleatorio entre 1 y 100
+        return rnd.nextInt(100) + 1;
     }
 
     public void mostrar() {
@@ -83,8 +79,6 @@ public class Personaje {
     public String toString() {
         return nombre + " (" + puntosDeVida + "/" + puntosDeVidaMaximos + ")";
     }
-
-    // Métodos getters y setters necesarios
 
     public String getNombre() {
         return nombre;
@@ -180,7 +174,6 @@ public class Personaje {
         return puntosDeVidaMaximos;
     }
 
-    // Método para sumar experiencia y subir niveles
     public byte sumarExperiencia(int puntos) {
         experiencia += puntos;
         byte nivelesSubidos = 0;
@@ -188,58 +181,54 @@ public class Personaje {
         while (experiencia >= 1000) {
             experiencia -= 1000;
             nivelesSubidos++;
-            subirNivel(); // Llamamos al método para subir de nivel.
+            subirNivel();
         }
 
         return nivelesSubidos;
     }
 
-    // Método para subir un nivel
     public void subirNivel() {
         nivel++;
-        fuerza = (int) (fuerza * 1.05); // Aumento del 5%
-        agilidad = (int) (agilidad * 1.05); // Aumento del 5%
-        constitucion = (int) (constitucion * 1.05); // Aumento del 5%
+        fuerza = (int) (fuerza * 1.05);
+        agilidad = (int) (agilidad * 1.05);
+        constitucion = (int) (constitucion * 1.05);
         puntosDeVidaMaximos = 50 + constitucion;
-        puntosDeVida = puntosDeVidaMaximos; // Restauramos los puntos de vida
+        puntosDeVida = puntosDeVidaMaximos;
     }
 
-    // Método para curar al personaje
     public void curar() {
         if (puntosDeVida < puntosDeVidaMaximos) {
             puntosDeVida = puntosDeVidaMaximos;
         }
     }
 
-    // Método para perder vida
     public boolean perderVida(int puntos) {
         puntosDeVida -= puntos;
         if (puntosDeVida <= 0) {
             puntosDeVida = 0;
-            return true; // El personaje muere
+            return true;
         }
-        return false; // El personaje sigue vivo
+        return false;
     }
 
-    // Método para comprobar si el personaje sigue vivo
     public boolean estaVivo() {
         return puntosDeVida > 0;
     }
 
-    // Método para realizar un ataque
+
     public int atacar(Personaje enemigo) {
         int ataque = fuerza + rnd.nextInt(100) + 1;
         int defensa = enemigo.agilidad + rnd.nextInt(100) + 1;
-        int daño = Math.max(0, ataque - defensa); // Si el daño es negativo, se pone a 0
+        int daño = Math.max(0, ataque - defensa);
 
         if (daño > enemigo.puntosDeVida) {
-            daño = enemigo.puntosDeVida; // El daño no puede exceder los puntos de vida restantes
+            daño = enemigo.puntosDeVida;
         }
 
         if (daño > 0) {
             enemigo.perderVida(daño);
-            this.sumarExperiencia(daño); // El atacante gana experiencia
-            enemigo.sumarExperiencia(daño); // El defensor también gana algo de experiencia
+            this.sumarExperiencia(daño);
+            enemigo.sumarExperiencia(daño);
         }
 
         return daño;
@@ -247,7 +236,7 @@ public class Personaje {
 
     
     public static void main(String[] args) {
-        // Ejemplos de creación de personajes
+
         try {
             Personaje p1 = new Personaje("Aragorn", Raza.HUMANO, 90, 80, 85, 70, 60, 75, 5, 1500);
             p1.mostrar();
@@ -280,4 +269,5 @@ public class Personaje {
             System.out.println(e.getMessage());
         }
     }
+    
 }
