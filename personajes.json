@@ -82,5 +82,33 @@
     "experiencia": 0,
     "puntosDeVida": 350,
     "puntosDeVidaMaximos": 350
+  },
+  {
+    "nombre": "Bilbo",
+    "raza": "HOBBIT",
+    "fuerza": 200,
+    "agilidad": 300,
+    "constitucion": 150,
+    "inteligencia": 450,
+    "intuicion": 200,
+    "presencia": 250,
+    "nivel": 1,
+    "experiencia": 0,
+    "puntosDeVida": 200,
+    "puntosDeVidaMaximos": 200
+  },
+  {
+    "nombre": "Sam",
+    "raza": "HOBBIT",
+    "fuerza": 30,
+    "agilidad": 30,
+    "constitucion": 30,
+    "inteligencia": 30,
+    "intuicion": 30,
+    "presencia": 30,
+    "nivel": 1,
+    "experiencia": 0,
+    "puntosDeVida": 80,
+    "puntosDeVidaMaximos": 80
   }
 ]
