@@ -1,61 +1,49 @@
-package ud5.herenciaejercicios;
+package ud5.herenciaejercicios.EP0812a3;
 
 public class Caja {
-    protected double ancho;
-    protected double alto;
-    protected double fondo;
-    protected String etiqueta;
-    
-    public enum Unidad {
-        CM, M
+    int ancho, alto, fondo;
+    String etiqueta;
+
+    enum Unidad {cm, m};
+
+    Caja(int ancho, int alto, int fondo, Unidad unidad) {
+        int multiplicador = switch (unidad) {
+            case cm -> 1;
+            case m -> 100;
+            default -> 0;
+        };
+
+        if (multiplicador == 0)
+            throw new IllegalArgumentException("La unidad de medida es incorrecta");
+        else if (ancho <= 0 || alto <= 0 || fondo <= 0)
+            throw new IllegalArgumentException("Ancho, alto o fondo incorrecto");
+
+        this.ancho = ancho * multiplicador;
+        this.alto = alto * multiplicador;
+        this.fondo = fondo * multiplicador;
     }
 
-    public Caja(int ancho, int alto, int fondo, Unidad unidad) {
-        if (unidad == Unidad.CM) {
-            this.ancho = ancho / 100.0;
-            this.alto = alto / 100.0;
-            this.fondo = fondo / 100.0;
-        } else {
-            this.ancho = ancho;
-            this.alto = alto;
-            this.fondo = fondo;
-        }
-        this.etiqueta = "";
-    }
-
-    public double getVolumen() {
-        return ancho * alto * fondo;
+    // Volumen
+    double getVolumen() {
+        return ancho * alto * fondo / 1000000;
     }
 
     public void setEtiqueta(String etiqueta) {
-        if (etiqueta.length() <= 30) {
+        if (etiqueta != null && etiqueta.length() <= 30)
             this.etiqueta = etiqueta;
-        } else {
-            this.etiqueta = etiqueta.substring(0, 30);
-        }
     }
 
     @Override
     public String toString() {
-        return "Caja [Ancho=" + ancho + " m, Alto=" + alto + " m, Fondo=" + fondo + " m, Volumen=" + getVolumen() + " m³, Etiqueta='" + etiqueta + "']";
+        return "Caja de " + ancho + "x" + alto + "x" + fondo
+                + " (" + etiqueta + ")";
     }
 
-    public double getAncho() {
-        return ancho;
+    public static void main(String[] args) {
+        Caja caja1 = new Caja(100, 100, 100, Unidad.cm);
+        caja1.setEtiqueta("Para: IES Chan do Monte");
+        System.out.println(caja1);
+        System.out.println("Volumen: " + caja1.getVolumen());
     }
 
-    public double getAlto() {
-        return alto;
-    }
-
-    public double getFondo() {
-        return fondo;
-    }
-
-    public String getEtiqueta() {
-        return etiqueta;
-    }
-
-    
 }
-

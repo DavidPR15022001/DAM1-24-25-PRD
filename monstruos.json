@@ -1,0 +1,30 @@
+[
+  {
+    "nombre": "Orco",
+    "ataque": 60,
+    "defensa": 41,
+    "velocidad": 33,
+    "puntosVida": 67
+  },
+  {
+    "nombre": "Aranha",
+    "ataque": 17,
+    "defensa": 39,
+    "velocidad": 60,
+    "puntosVida": 55
+  },
+  {
+    "nombre": "Troll",
+    "ataque": 65,
+    "defensa": 58,
+    "velocidad": 34,
+    "puntosVida": 161
+  },
+  {
+    "nombre": "Dragon",
+    "ataque": 127,
+    "defensa": 65,
+    "velocidad": 82,
+    "puntosVida": 156
+  }
+]
