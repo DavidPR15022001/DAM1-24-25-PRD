@@ -24,4 +24,20 @@ public class Punto3D extends Punto{
             return Math.sqrt(Math.pow(x - p3D.x, 2) + Math.pow(y - p3D.y, 2)+ Math.pow(z - p3D.z, 2));
         }
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Punto3D other = (Punto3D) obj;
+        if (z != other.z)
+            return false;
+        return true;
+    }
+
+    
 }

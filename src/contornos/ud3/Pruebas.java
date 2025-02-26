@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Pruebas {
 
-    public boolean esNumeroPerfecto(int num) {
+    public static boolean esNumeroPerfecto(int num) {
         int divisor, sumaDivisores;
         divisor = 1;
         sumaDivisores = 0;

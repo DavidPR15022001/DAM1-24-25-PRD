@@ -1,4 +1,4 @@
-package ud5.herenciaejercicios.EP0812a3;
+package ud5.herenciaejercicios.EP812a3;
 
 public class Caja {
     int ancho, alto, fondo;
