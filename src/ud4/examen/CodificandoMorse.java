@@ -6,7 +6,10 @@ public class CodificandoMorse {
         String[] letrasMorse = { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..",
                 "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..",
                 "-.-.--", "..--.." };
-        
         return 0;
+    }
+
+    public static String codificaMorse(String s) {
+        return null;
     }
 }
