@@ -1,4 +1,4 @@
-package ud5.clasesejercicios.E0711;
+package ud5.clasesejercicios.E0711a2;
 
 import java.util.Arrays;
 
@@ -71,6 +71,15 @@ public class Lista {
         System.out.println(Arrays.toString(elementos));
     }
 
+    public static Lista concatena(Lista l1, Lista l2){
+
+        Lista l = l1;
+
+        l.insertarFinal(l2);
+
+        return l;
+    }
+    
     public static void main(String[] args) {
         Lista l = new Lista();
 
@@ -79,8 +88,8 @@ public class Lista {
         l.insertarFinal(7);
         l.insertarInicio(6);
         l.insertarInicio(6);
-        l.insertarFinal(7);   // 6677
-        l.insertarEn(5, 2); // 66577
+        l.insertarFinal(7);
+        l.insertarEn(5, 2);
         l.mostrar();
         
         Lista l2 = new Lista();
@@ -88,11 +97,13 @@ public class Lista {
         l2.insertarFinal(2);
         l2.insertarFinal(3);
 
-        l.insertarFinal(l2); // 66577123
+        l.insertarFinal(l2);
 
-        l.eliminarEn(4); // 6657123
+        l.eliminarEn(4);
 
         System.out.println("Posición del valor 1: " + l.buscar(1));
+
+        Lista.concatena(l, l2);
 
         l.mostrar();
 
