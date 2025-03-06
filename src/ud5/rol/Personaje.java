@@ -22,6 +22,11 @@ public class Personaje {
 
     private static final Random rnd = new Random();
 
+    public Personaje(String nombre, int constitucion) {
+        this.nombre = nombre;
+        this.constitucion = constitucion;
+    }
+
     public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion,
             int inteligencia, int intuicion, int presencia, int nivel, int experiencia) {
         if (fuerza < 1 || agilidad < 1 || constitucion < 1 || inteligencia < 1 ||
