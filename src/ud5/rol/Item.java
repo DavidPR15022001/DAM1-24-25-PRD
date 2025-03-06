@@ -5,14 +5,12 @@ public class Item {
     private double peso;
     private int precio;
 
-    // Constructor
     public Item(String nombre, double peso, int precio) {
         this.nombre = nombre;
         this.peso = peso;
         this.precio = precio;
     }
 
-    // Getters y setters
     public String getNombre() {
         return nombre;
     }
@@ -37,7 +35,6 @@ public class Item {
         this.precio = precio;
     }
 
-    // Redefinición del método equals()
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -48,7 +45,6 @@ public class Item {
                 nombre.equals(item.nombre);
     }
 
-    // Método toString para imprimir el Item de manera legible
     @Override
     public String toString() {
         return nombre + ", peso: " + peso + " kilos, precio: " + precio + " monedas";
