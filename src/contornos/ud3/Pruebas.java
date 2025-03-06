@@ -56,7 +56,6 @@ public class Pruebas {
         for (int i = 0; i < 10; i++) {
             
             int num = sc.nextInt();
-            sc.close();
             
             if (num % 2 == 0) {
                 
@@ -68,7 +67,7 @@ public class Pruebas {
         }
 
         System.out.printf("Pares: %d\nImpares: %d ", contPares, contImpares);
-
+        sc.close();
     }
 
 }
