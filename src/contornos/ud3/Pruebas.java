@@ -5,11 +5,16 @@ import java.util.Scanner;
 public class Pruebas {
 
     public static boolean esNumeroPerfecto(int num) {
+        
+        if (num <= 0) {
+            return false;
+        }
+        
         int divisor, sumaDivisores;
         divisor = 1;
         sumaDivisores = 0;
 
-        while (divisor < num / 2) {
+        while (divisor <= num / 2) {
             if (num % divisor == 0)
                 sumaDivisores = sumaDivisores + divisor;
             divisor++;
