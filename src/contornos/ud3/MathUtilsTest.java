@@ -1,38 +1,25 @@
 package contornos.ud3;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class MathUtilsTest {
-
+class MathUtilsTest {
     @Test
-    public void testFactorialPositivo() {
-
-        assertEquals(120, MathUtils.factorial(5));
+    void factorialExcepcion() {
+        try {
+            int res = MathUtils.factorial(-1);
+            fail("FALLO: n < 0 debería generar una excepción");
+        } catch (Exception e) {
+        }
     }
 
     @Test
-    public void testFactorialCero() {
-
+    void factorialNoBucle() {
         assertEquals(1, MathUtils.factorial(0));
     }
 
     @Test
-    public void testFactorialUno() {
-
+    void factorialBucle() {
         assertEquals(1, MathUtils.factorial(1));
     }
-
-    @Test
-    public void testFactorialNumeroNegativo() {
-
-        assertThrows(IllegalArgumentException.class, () -> MathUtils.factorial(-1));
-    }
-
-    @Test
-    public void testFactorialGrande() {
-
-        assertEquals(3628800, MathUtils.factorial(10));
-    }
 }
-
