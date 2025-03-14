@@ -1,18 +1,94 @@
-package ud5.Inmobiliaria;
+package ud5.inmobiliaria;
 
-public abstract class Inmueble {
-    private String direccion;
-    private int metrosCuadrados;
-    private int habitaciones;
-    private int baños;
-    private double precioAlquiler;
-    private double precioVenta;
+import java.util.Arrays;
+import java.util.Comparator;
 
-    public Inmueble(String direccion, int metrosCuadrados, int habitaciones, int baños) {
+public abstract class Inmueble implements Comparable {
+    String direccion;
+    int numHab;
+    int numBanhos;
+    int m2;
+    int precioAlquiler;
+    int precioVenta;
+
+    
+    public Inmueble() {
+    }
+
+    public Inmueble(String direccion, int m2, int numHab, int numBanhos) {
         this.direccion = direccion;
-        this.metrosCuadrados = metrosCuadrados;
-        this.habitaciones = habitaciones;
-        this.baños = baños;
+        this.numHab = numHab;
+        this.numBanhos = numBanhos;
+        this.m2 = m2;
+    }
+
+    public void setPrecioAlquiler(int precioAlquiler) {
+        this.precioAlquiler = precioAlquiler;
+    }
+
+    public void setPrecioVenta(int precioVenta) {
+        this.precioVenta = precioVenta;
+    }
+
+    abstract String detalle();
+
+    @Override
+    public String toString() {
+        return "Inmueble  en " + direccion + " (" +  m2 + " m2, " + numHab + " hab)";
+    }
+
+    static void mostrarInmuebles(Inmueble[] t) {
+        for (Inmueble i : t) {
+            System.out.println(i);
+        }
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return direccion.compareTo(((Inmueble) o).direccion);
+    }
+
+    static void sortMetrosDesc(Inmueble[] t) {
+        Arrays.sort(t,new ComparaMetros().reversed());
+    }
+
+    static void sortHabMetrosDesc(Inmueble[] t) {
+        Comparator comparaHab = new Comparator() {
+        
+        @Override
+        public int compare(Object o1, Object o2) {
+            Inmueble i1 = (Inmueble) o1;
+            Inmueble i2 = (Inmueble) o2;
+            return i1.m2 - i2.m2;
+        }
+        };
+        //OTRA MANERA
+        /*@Override
+        public int compare(Object o1, Object o2) {
+            Inmueble i1 = (Inmueble) o1;
+            Inmueble i2 = (Inmueble) o2;
+            int res = i.2numHab - i1.numHab;
+            if (res == 0) {
+                res = i2.m2 - i1.m2
+            }
+            return res;
+        }
+        };
+        Arrays.sort(t, comparaHab)
+        */
+        
+        Arrays.sort(t, comparaHab.thenComparing(new ComparaMetros().reversed()));
+    }
+
+    static void sortPrecioAlquilerAsc(Inmueble[] t) {
+        Comparator comparaAlquiler = new Comparator() {
+        @Override
+        public int compare(Object o1, Object o2) {
+            Inmueble i1 = (Inmueble) o1;
+            Inmueble i2 = (Inmueble) o2;
+            return i1.precioAlquiler - i2.precioAlquiler;
+        }
+    };
     }
 
     public String getDireccion() {
@@ -23,49 +99,39 @@ public abstract class Inmueble {
         this.direccion = direccion;
     }
 
-    public int getMetrosCuadrados() {
-        return metrosCuadrados;
+    public int getNumHab() {
+        return numHab;
     }
 
-    public void setMetrosCuadrados(int metrosCuadrados) {
-        this.metrosCuadrados = metrosCuadrados;
+    public void setNumHab(int numHab) {
+        this.numHab = numHab;
     }
 
-    public int getHabitaciones() {
-        return habitaciones;
+    public int getNumBanhos() {
+        return numBanhos;
     }
 
-    public void setHabitaciones(int habitaciones) {
-        this.habitaciones = habitaciones;
+    public void setNumBanhos(int numBanhos) {
+        this.numBanhos = numBanhos;
     }
 
-    public int getBaños() {
-        return baños;
+    public int getM2() {
+        return m2;
     }
 
-    public void setBaños(int baños) {
-        this.baños = baños;
+    public void setM2(int m2) {
+        this.m2 = m2;
     }
 
-    public double getPrecioAlquiler() {
+    public int getPrecioAlquiler() {
         return precioAlquiler;
     }
 
-    public void setPrecioAlquiler(double precioAlquiler) {
-        this.precioAlquiler = precioAlquiler;
-    }
-
-    public double getPrecioVenta() {
+    public int getPrecioVenta() {
         return precioVenta;
     }
 
-    public void setPrecioVenta(double precioVenta) {
-        this.precioVenta = precioVenta;
-    }
 
-    public String mostrarInfoGeneral() {
-        return "Inmueble en " + direccion + " (" + metrosCuadrados + " m2, " + habitaciones + " hab)";
-    }
-
-    public abstract String detalle();
+    
+    
 }

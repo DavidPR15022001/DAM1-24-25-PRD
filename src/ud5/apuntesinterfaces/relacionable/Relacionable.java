@@ -11,6 +11,10 @@ public interface Relacionable {
         return clase.substring(posicion+1);
     }
 
+    default boolean esNulo() {
+        return true;
+    }
+
     static boolean esNull(Relacionable a){
         return a == null;
     }

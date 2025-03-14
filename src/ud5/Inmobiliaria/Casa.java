@@ -1,34 +1,23 @@
-package ud5.Inmobiliaria;
+package ud5.inmobiliaria;
 
-public class Casa extends Inmueble {
-    private int terreno;
+public class Casa extends Inmueble{
+    int m2Terreno;
 
-    public Casa(String direccion, int metrosCuadrados, int habitaciones, int baños, int terreno) {
-        super(direccion, metrosCuadrados, habitaciones, baños);
-        this.terreno = terreno;
-    }
-
-    public int getTerreno() {
-        return terreno;
-    }
-
-    public void setTerreno(int terreno) {
-        this.terreno = terreno;
+    public Casa(String direccion, int m2, int numHab, int numBanhos, int m2Terreno) {
+        super(direccion, m2, numHab, numBanhos);
+        this.m2Terreno = m2Terreno;
     }
 
     @Override
-    public String detalle() {
-        String detalle = "Casa en " + getDireccion() + ".\n" +
-                getMetrosCuadrados() + " m2, " + getHabitaciones() + " hab, " +
-                getBaños() + " baños, con terreno de " + terreno + " m2.";
+    String detalle() {
+        String str = "Casa en " + direccion + ".\n"
+         + m2 + " m2, " + numHab + " hab, " + numBanhos+ " baños, con terreno de " + m2Terreno + " m2.\n";
+         if (precioAlquiler > 0)
+         str += "Precio de Alquiler: " + precioAlquiler + " €\n";
 
-        if (getPrecioAlquiler() > 0) {
-            detalle += "\nPrecio de Alquiler: " + getPrecioAlquiler() + " €";
-        }
-        if (getPrecioVenta() > 0) {
-            detalle += "\nPrecio de Venta: " + getPrecioVenta() + " €";
-        }
+         if (precioVenta > 0)
+         str += "Precio de Venta: " + precioVenta + " €\n";
 
-        return detalle;
+        return str;
     }
-}
+    }
