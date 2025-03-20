@@ -79,15 +79,4 @@ public class Praia {
         this.lon = lon;
     }
 
-    public static void imprimirLista(Praia[] praias, int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'imprimirLista'");
-    }
-
-    public void mostrarDetalles() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mostrarDetalles'");
-    }
-
-
 }
