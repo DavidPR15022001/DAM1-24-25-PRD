@@ -27,6 +27,8 @@ public class EP0821 {
     }
 
     public static void main(String[] args) {
+        System.out.println(esNumero(1));
+        System.out.println(esNumero(1.1));
         sumar(5, 6);
         sumar(5.5, 6.6);
         sumar("Hola", " Mundo");

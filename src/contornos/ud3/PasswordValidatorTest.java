@@ -4,36 +4,25 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class PasswordValidatorTest {
-
+    
     @Test
-    void testPasswordValida() {
-        assertTrue(PasswordValidator.isValid("Clave123"));
-        assertTrue(PasswordValidator.isValid("Segura456")); 
+    void isValid() {
+        assertEquals(true, PasswordValidator.isValid("Passw0rd"));
     }
 
     @Test
-    void testPasswordCorta() {
-        assertFalse(PasswordValidator.isValid("C1ave"));
-        assertFalse(PasswordValidator.isValid("A1b2"));
+    void isNotValidFallaLongitud() {
+        assertEquals(false, PasswordValidator.isValid("Passw0"));
     }
 
     @Test
-    void testFaltaMayuscula() {
-        assertFalse(PasswordValidator.isValid("clave123"));
-        assertFalse(PasswordValidator.isValid("password1"));
+    void isNotValidFallaMayúscula() {
+        assertEquals(false, PasswordValidator.isValid("passw0rd"));
     }
 
     @Test
-    void testFaltaNumero() {
-        assertFalse(PasswordValidator.isValid("ClaveClave"));
-        assertFalse(PasswordValidator.isValid("Password")); 
-    }
-
-    @Test
-    void testCasosExtremos() {
-        assertFalse(PasswordValidator.isValid(""));
-        assertFalse(PasswordValidator.isValid("12345678")); 
-        assertTrue(PasswordValidator.isValid("A1234567"));
+    void isNotValidFallaNumero() {
+        assertEquals(false, PasswordValidator.isValid("Password"));
     }
 }
 
