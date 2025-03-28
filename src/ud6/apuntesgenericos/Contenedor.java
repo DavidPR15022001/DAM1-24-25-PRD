@@ -37,10 +37,12 @@ class Contenedor<T> {
 
         Contenedor<? extends Number> cComodin = c;
         cComodin = c1;
-        // cComodin = c2; // Error: cComdin solo puede referenciar contenedores de números
+        // cComodin = c2; // Error: CComodin solo puede referenciar contenedores de números
 
-        
+
+
 
     }
 }
 
+ 
