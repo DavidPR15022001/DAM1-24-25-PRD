@@ -1,64 +1,62 @@
 package ud5.rol;
 
-import java.util.Random;
+import java.util.Scanner;
+
+import ud5.rol.Personaje.Raza;
 
 public class AppCombateSingular {
     public static void main(String[] args) {
+        System.out.println("JUEGO DE ROL: Combate singular");
 
-        Personaje p1 = new Personaje("Aragorn", Personaje.Raza.HUMANO, 90, 80, 85, 70, 60, 75, 5, 1500);
-        Personaje p2 = new Personaje("Legolas", Personaje.Raza.ELFO, 85, 95, 70, 80, 90, 85);
+        // Se crean y muestran las fichas de los personajes
+        Personaje pj1 = new Personaje("Aragorn");
+        Personaje pj2 = new Personaje("Legolas", Raza.ELFO);
+
+        System.out.println("CONTENDIENTES: ");
+        System.out.println();
+        pj1.mostrar();
+        pj2.mostrar();
+
+        // Se decide el primer turno según la agilidad
+        boolean turnoPj1;
+        if (pj1.agilidad > pj2.agilidad)
+            turnoPj1 = true;
+        else if (pj1.agilidad < pj2.agilidad)
+            turnoPj1 = false;
+        else // Si tienen la misma agilidad se decide el primer turno aleatoriamente
+            turnoPj1 = Math.random() > 0.5;
+
+        System.out.println("Empieza atacando " + (turnoPj1 ? pj1 : pj2) + "\n");
+
+        System.out.println("Pulsa [ENTER] para empezar el combate");
+        new Scanner(System.in).nextLine();
 
 
-        System.out.println("Antes del combate:");
-        p1.mostrar();
-        System.out.println(p1);
-        p2.mostrar();
-        System.out.println(p2);
+        // Los personajes se atacan alternativamente mientras ambos sigan vivos
+        do {
+            if (turnoPj1)
+                ataque(pj1, pj2);
+            else
+                ataque(pj2, pj1);
+            // Cambia el turno
+            turnoPj1 = !turnoPj1;
+        } while (pj1.estaVivo() && pj2.estaVivo());
 
-
-        combate(p1, p2);
+        // Muestra el ganador
+        System.out.print("\nVENCEDOR/A: ");
+        if (pj1.estaVivo())
+            System.out.println(pj1);
+        else
+            System.out.println(pj2);
     }
 
-    public static void combate(Personaje p1, Personaje p2) {
-        Random rnd = new Random();
-        Personaje atacante = (p1.getAgilidad() > p2.getAgilidad()) ? p1 : p2;
-        Personaje defensor = (atacante == p1) ? p2 : p1;
-
-        System.out.println("\n¡Comienza el combate!");
-
-
-        while (p1.estaVivo() && p2.estaVivo()) {
-            int daño = atacante.atacar(defensor);
-            System.out.println(atacante.getNombre() + "(" + atacante.getPuntosDeVida() + ") ataca a " + defensor.getNombre() + "(" + defensor.getPuntosDeVida() + ")");
-            if (daño > 0) {
-                System.out.println("¡El ataque tuvo éxito! " + defensor.getNombre() + " ha recibido " + daño + " puntos de daño.");
-                if (!defensor.estaVivo()) {
-                    System.out.println(defensor.getNombre() + " ha muerto.");
-                    break;
-                }
-            } else {
-                System.out.println("El ataque falló.");
-            }
-
-
-            Personaje temp = atacante;
-            atacante = defensor;
-            defensor = temp;
-
-
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-        System.out.println("\n¡El combate ha terminado!");
-        System.out.println("\nEstado final:");
-        p1.mostrar();
-        System.out.println(p1);
-        p2.mostrar();
-        System.out.println(p2);
+    private static void ataque(Personaje pj1, Personaje pj2) {
+        System.out.print(pj1 + " ataca a " + pj2);
+        int danho = pj1.atacar(pj2);
+        if (danho > 0)
+            System.out.println(" => " + pj2 + " pierde " + danho + " PV");
+        else
+            System.out.println(" => " + pj2 + " esquiva o para el ataque");
     }
+
 }

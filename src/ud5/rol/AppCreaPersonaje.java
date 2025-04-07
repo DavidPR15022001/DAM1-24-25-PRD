@@ -1,208 +1,103 @@
 package ud5.rol;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Scanner;
 
+import ud5.rol.Personaje.Raza;
+
 public class AppCreaPersonaje {
-    private static final Scanner scanner = new Scanner(System.in);
-    private static final String FICHERO_JSON = "personajes.json";
+    public static void main(String[] args) throws Exception {
+        System.out.println("JUEGO DE ROL: Creación de Personaje");
 
-    public static void main(String[] args) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        File archivo = new File(FICHERO_JSON);
-        Personaje personaje = null;
-        boolean ejecutar = true;
-
-
-        List<Personaje> personajesGuardados = cargarPersonajes(archivo, gson);
-
-        while (ejecutar) {
-            mostrarMenu();
-            int opcion = obtenerOpcion();
-            switch (opcion) {
-                case 1:
-
-                    personaje = crearPersonaje();
-                    personajesGuardados.add(personaje);
-                    break;
-                case 2:
-
-                    if (personajesGuardados.size() > 0) {
-                        editarPersonaje(personajesGuardados, gson);
-                    } else {
-                        System.out.println("No hay personajes guardados.");
-                    }
-                    break;
-                case 3:
-
-                    verPersonajes(personajesGuardados);
-                    break;
-                case 4:
-
-                    guardarPersonajes(personajesGuardados, archivo, gson);
-                    break;
-                case 5:
-
-                    ejecutar = false;
-                    break;
-                default:
-                    System.out.println("Opción no válida.");
-            }
-        }
-    }
-
-
-    private static void mostrarMenu() {
-        System.out.println("\n--- MENÚ ---");
-        System.out.println("1. Crear personaje");
-        System.out.println("2. Editar personaje");
-        System.out.println("3. Ver personajes");
-        System.out.println("4. Guardar personajes");
-        System.out.println("5. Salir");
-        System.out.print("Seleccione una opción: ");
-    }
-
-
-    private static int obtenerOpcion() {
-        int opcion = -1;
-        try {
-            opcion = Integer.parseInt(scanner.nextLine());
-        } catch (NumberFormatException e) {
-            System.out.println("Entrada no válida.");
-        }
-        return opcion;
-    }
-
-
-    private static Personaje crearPersonaje() {
-        System.out.println("\nCrear un nuevo personaje:");
-        System.out.print("Nombre: ");
-        String nombre = scanner.nextLine();
-        System.out.println("Elija la raza:");
-        for (Personaje.Raza raza : Personaje.Raza.values()) {
-            System.out.println(raza.ordinal() + 1 + ". " + raza);
-        }
-        int razaSeleccionada = Integer.parseInt(scanner.nextLine()) - 1;
-        Personaje.Raza raza = Personaje.Raza.values()[razaSeleccionada];
-
-        System.out.print("Fuerza: ");
-        int fuerza = Integer.parseInt(scanner.nextLine());
-        System.out.print("Agilidad: ");
-        int agilidad = Integer.parseInt(scanner.nextLine());
-        System.out.print("Constitución: ");
-        int constitucion = Integer.parseInt(scanner.nextLine());
-        System.out.print("Inteligencia: ");
-        int inteligencia = Integer.parseInt(scanner.nextLine());
-        System.out.print("Intuición: ");
-        int intuicion = Integer.parseInt(scanner.nextLine());
-        System.out.print("Presencia: ");
-        int presencia = Integer.parseInt(scanner.nextLine());
-
-        return new Personaje(nombre, raza, fuerza, agilidad, constitucion, inteligencia, intuicion, presencia);
-    }
-
-
-    private static void editarPersonaje(List<Personaje> personajesGuardados, Gson gson) {
-        System.out.println("\nSeleccione el personaje a editar:");
-        for (int i = 0; i < personajesGuardados.size(); i++) {
-            System.out.println(i + 1 + ". " + personajesGuardados.get(i).getNombre());
-        }
-        int seleccion = Integer.parseInt(scanner.nextLine()) - 1;
-        if (seleccion >= 0 && seleccion < personajesGuardados.size()) {
-            Personaje personaje = personajesGuardados.get(seleccion);
-            System.out.println("Editando a " + personaje.getNombre());
-            System.out.println("1. Cambiar fuerza");
-            System.out.println("2. Cambiar agilidad");
-            System.out.println("3. Cambiar constitución");
-            System.out.println("4. Cambiar inteligencia");
-            System.out.println("5. Cambiar intuición");
-            System.out.println("6. Cambiar presencia");
-            System.out.println("7. Volver");
-            System.out.print("Seleccione una opción: ");
-            int opcionEdicion = Integer.parseInt(scanner.nextLine());
-
-            switch (opcionEdicion) {
-                case 1:
-                    System.out.print("Nueva fuerza: ");
-                    personaje.setFuerza(Integer.parseInt(scanner.nextLine()));
-                    break;
-                case 2:
-                    System.out.print("Nueva agilidad: ");
-                    personaje.setAgilidad(Integer.parseInt(scanner.nextLine()));
-                    break;
-                case 3:
-                    System.out.print("Nueva constitución: ");
-                    personaje.setConstitucion(Integer.parseInt(scanner.nextLine()));
-                    break;
-                case 4:
-                    System.out.print("Nueva inteligencia: ");
-                    personaje.setInteligencia(Integer.parseInt(scanner.nextLine()));
-                    break;
-                case 5:
-                    System.out.print("Nueva intuición: ");
-                    personaje.setIntuicion(Integer.parseInt(scanner.nextLine()));
-                    break;
-                case 6:
-                    System.out.print("Nueva presencia: ");
-                    personaje.setPresencia(Integer.parseInt(scanner.nextLine()));
-                    break;
-                case 7:
-                    return;
-                default:
-                    System.out.println("Opción no válida.");
-                    break;
-            }
-            System.out.println("Personaje editado.");
-        }
-    }
-
-
-    private static void verPersonajes(List<Personaje> personajesGuardados) {
-        if (!personajesGuardados.isEmpty()) {
-            System.out.println("\nPersonajes guardados:");
-            for (Personaje p : personajesGuardados) {
-                p.mostrar();
-                System.out.println("---------------------------");
-            }
+        Personaje p = Util.importarJson();
+        if (p != null) {
+            System.out.println("Personaje cargado actualmente:");
+            p.mostrar();
+            // Quieres sobreescribirlo?
         } else {
-            System.out.println("No hay personajes guardados.");
+            p = crearPersonaje();
         }
+
+        // Mostrar el personaje
+        p.mostrar();
+        System.out.println(p);
+        // Opcional: guardar en fichero de texto JSON.        
+        Util.exportarJson(p);
+       
+
+        // Personaje aragorn = new Personaje("Aragorn", "fassadad", 98, 87, 67,15,
+        // 15785, 150);
+
     }
 
+    static Personaje crearPersonaje() {
+        String nombre = null;
+        Raza raza = null;
+        int nivel = 0, exp = 0, fuerza = 0, agilidad = 0, constitucion = 0;
 
-    private static List<Personaje> cargarPersonajes(File archivo, Gson gson) {
-        if (archivo.exists() && archivo.isFile()) {
-            try (Reader reader = new FileReader(archivo)) {
-                Personaje[] personajesArray = gson.fromJson(reader, Personaje[].class);
+        Scanner sc = new Scanner(System.in);
 
-                if (personajesArray != null) {
-                    List<Personaje> personajesList = new ArrayList<>();
-                    for (Personaje p : personajesArray) {
-                        personajesList.add(p);
-                    }
-                    return personajesList;
+        System.out.println("Cómo quieres crear el personaje? ");
+        System.out.println("1.- Indicar sólo el nombre");
+        System.out.println("2.- Indicar el nombre y la raza");
+        System.out.println("3.- Indicar el nombre, la raza y los atributos físicos");
+        System.out.println("4.- Indicar todos los atributos");
+        int opcion = sc.nextInt();
+        sc.nextLine(); // captura el [ENTER] de la entrada anterior
+
+        int puntosVida = -1;
+
+        // switch para solicitar los atributos
+        switch (opcion) {
+            case 4:
+                System.out.print("Nivel: ");
+                nivel = sc.nextInt();
+                System.out.print("Experiencia: ");
+                exp = sc.nextInt();
+                System.out.print("Puntos de vida: ");
+                puntosVida = sc.nextInt();
+            case 3:
+                System.out.print("Fuerza: ");
+                fuerza = sc.nextInt();
+                System.out.print("Agilidad: ");
+                agilidad = sc.nextInt();
+                System.out.print("Constitución: ");
+                constitucion = sc.nextInt();
+                if (puntosVida == -1) {
+                    puntosVida = constitucion + Personaje.PUNTOS_VIDA_BASE;
                 }
-            } catch (IOException e) {
-                System.out.println("Error al cargar personajes: " + e.getMessage());
-            }
+            case 2:
+                try {
+                    System.out.println("Raza: ");
+                    raza = Raza.valueOf(sc.nextLine().toUpperCase());
+
+                } catch (Exception e) {
+                    System.out.println(
+                            "Error!! La raza debe ser una de las siguientes: " + Arrays.toString(Raza.values()));
+
+                }
+            case 1:
+                System.out.println("Nombre: ");
+                nombre = sc.nextLine();
         }
-        return new ArrayList<>();
-    }
+        sc.close();
 
-
-    private static void guardarPersonajes(List<Personaje> personajes, File archivo, Gson gson) {
-        try (Writer writer = new FileWriter(archivo)) {
-
-            Personaje[] personajesArray = personajes.toArray(new Personaje[0]);
-            gson.toJson(personajesArray, writer);
-            System.out.println("Personajes guardados.");
-        } catch (IOException e) {
-            System.out.println("Error al guardar personajes: " + e.getMessage());
+        // switch para crear el personaje
+        Personaje p = null;
+        switch (opcion) {
+            case 1:
+                p = new Personaje(nombre);
+                break;
+            case 2:
+                p = new Personaje(nombre, raza);
+                break;
+            case 3:
+                p = new Personaje(nombre, raza, fuerza, agilidad, constitucion);
+                break;
+            case 4:
+                p = new Personaje(nombre, raza, fuerza, agilidad, constitucion, nivel, exp, puntosVida);
+                break;
         }
+        return p;
     }
 }

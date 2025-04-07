@@ -1,290 +1,204 @@
 package ud5.rol;
 
-import java.util.Random;
-
 public class Personaje {
+
+    final protected static byte PUNTOS_VIDA_BASE = 50; // 50 puntos de vida base
+    final protected static int EXPERIENCIA_SUBIDA_NIVEL = 1000; // cada 1000 puntos de experiencia
+    final protected static byte PORCENTAJE_SUBIDA_NIVEL = 5; // Las caraterísticas del personaje se incrementan un 5%
+
     public enum Raza {
         HUMANO, ELFO, ENANO, HOBBIT, ORCO, TROLL
     }
 
-    private String nombre;
-    private Raza raza;
-    private int fuerza;
-    private int agilidad;
-    private int constitucion;
-    private int inteligencia;
-    private int intuicion;
-    private int presencia;
-    private int nivel;
-    private int experiencia;
-    private int puntosDeVida;
-    private int puntosDeVidaMaximos;
+    /*
+     * ATRIBUTOS
+     */
+    protected String nombre;
+    protected Raza raza;
+    protected short fuerza;
+    protected short agilidad;
+    protected short constitucion;
+    protected byte nivel;
+    protected int experiencia;
+    protected short puntosVida;
 
-    private static final Random rnd = new Random();
+    /*
+     * CONSTRUCTORES
+     */
+    public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion, int nivel,
+            int experiencia, int puntosVida) {
 
-    public Personaje(String nombre, int constitucion) {
-        this.nombre = nombre;
-        this.constitucion = constitucion;
-    }
-
-    public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion,
-            int inteligencia, int intuicion, int presencia, int nivel, int experiencia) {
-        if (fuerza < 1 || agilidad < 1 || constitucion < 1 || inteligencia < 1 ||
-                intuicion < 1 || presencia < 1 || nivel < 1 || experiencia < 0) {
-            throw new IllegalArgumentException("¡Personaje no válido!");
-        }
+        if (fuerza <= 0 || agilidad <= 0 || constitucion <= 0 || nivel <= 0 || experiencia < 0 || puntosVida <= 0)
+            throw new IllegalArgumentException(
+                    "Las características físicas del personaje, el nivel y puntos de vida no pueden ser menores que 1, y la experiencia no puede ser menor que 0.");
 
         this.nombre = nombre;
         this.raza = raza;
-        this.fuerza = fuerza;
-        this.agilidad = agilidad;
-        this.constitucion = constitucion;
-        this.inteligencia = inteligencia;
-        this.intuicion = intuicion;
-        this.presencia = presencia;
-        this.nivel = nivel;
+        this.fuerza = (short) fuerza;
+        this.agilidad = (short) agilidad;
+        this.constitucion = (short) constitucion;
+        this.nivel = (byte) nivel;
         this.experiencia = experiencia;
-        this.puntosDeVidaMaximos = 50 + constitucion;
-        this.puntosDeVida = this.puntosDeVidaMaximos;
+        this.puntosVida = (short) puntosVida;
     }
 
-    public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion,
-            int inteligencia, int intuicion, int presencia) {
-        this(nombre, raza, fuerza, agilidad, constitucion, inteligencia, intuicion, presencia, 1, 0);
+    public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion) {
+        this(nombre, raza, fuerza, agilidad, constitucion, 1, 0, constitucion + PUNTOS_VIDA_BASE);
     }
 
     public Personaje(String nombre, Raza raza) {
-        this(nombre, raza, getRandomStat(), getRandomStat(), getRandomStat(),
-                getRandomStat(), getRandomStat(), getRandomStat(), 1, 0);
+        this(nombre, raza, random(1, 100), random(1, 100), random(1, 100));
     }
 
     public Personaje(String nombre) {
         this(nombre, Raza.HUMANO);
     }
 
-    private static int getRandomStat() {
-        return rnd.nextInt(100) + 1;
-    }
 
+    /*
+     * MÉTODOS PÚBLICOS: mostrar, toString
+     */
+
+    /**
+     * Muestra por consola todos los datos del personaje
+     */
     public void mostrar() {
-        System.out.println("Nombre: " + nombre);
+        System.out.println("PERSONAJE: " + nombre);
         System.out.println("Raza: " + raza);
         System.out.println("Fuerza: " + fuerza);
         System.out.println("Agilidad: " + agilidad);
         System.out.println("Constitución: " + constitucion);
-        System.out.println("Inteligencia: " + inteligencia);
-        System.out.println("Intuición: " + intuicion);
-        System.out.println("Presencia: " + presencia);
         System.out.println("Nivel: " + nivel);
         System.out.println("Experiencia: " + experiencia);
-        System.out.println("Puntos de Vida: " + puntosDeVida + "/" + puntosDeVidaMaximos);
+        System.out.println("Puntos de Vida: " + puntosVida);
+        System.out.println();
     }
 
     @Override
     public String toString() {
-        return nombre + " (" + puntosDeVida + "/" + puntosDeVidaMaximos + ")";
+        return nombre + " (" + puntosVida + "/" + (constitucion + PUNTOS_VIDA_BASE) + ")";
     }
 
-    public String getNombre() {
-        return nombre;
+    /*
+     * MÉTODOS PÚBLICOS (COMBATE): sumarExperiencia, subirNivel, perderVida,
+     * estaVivo, atacar
+     */
+
+    /**
+     * Sube de nivel al personaje y aumenta sus características físicas.
+     */
+    public void subirNivel() {
+        nivel++;
+        fuerza *= 1 + (PORCENTAJE_SUBIDA_NIVEL / 100);
+        agilidad *= 1 + (PORCENTAJE_SUBIDA_NIVEL / 100);
+        constitucion *= 1 + (PORCENTAJE_SUBIDA_NIVEL / 100);
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Raza getRaza() {
-        return raza;
-    }
-
-    public void setRaza(Raza raza) {
-        this.raza = raza;
-    }
-
-    public int getFuerza() {
-        return fuerza;
-    }
-
-    public void setFuerza(int fuerza) {
-        this.fuerza = fuerza;
-    }
-
-    public int getAgilidad() {
-        return agilidad;
-    }
-
-    public void setAgilidad(int agilidad) {
-        this.agilidad = agilidad;
-    }
-
-    public int getConstitucion() {
-        return constitucion;
-    }
-
-    public void setConstitucion(int constitucion) {
-        this.constitucion = constitucion;
-        this.puntosDeVidaMaximos = 50 + constitucion;
-        this.puntosDeVida = puntosDeVidaMaximos;
-    }
-
-    public int getInteligencia() {
-        return inteligencia;
-    }
-
-    public void setInteligencia(int inteligencia) {
-        this.inteligencia = inteligencia;
-    }
-
-    public int getIntuicion() {
-        return intuicion;
-    }
-
-    public void setIntuicion(int intuicion) {
-        this.intuicion = intuicion;
-    }
-
-    public int getPresencia() {
-        return presencia;
-    }
-
-    public void setPresencia(int presencia) {
-        this.presencia = presencia;
-    }
-
-    public int getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
-    }
-
-    public int getExperiencia() {
-        return experiencia;
-    }
-
-    public void setExperiencia(int experiencia) {
-        this.experiencia = experiencia;
-    }
-
-    public int getPuntosDeVida() {
-        return puntosDeVida;
-    }
-
-    public void setPuntosDeVida(int puntosDeVida) {
-        this.puntosDeVida = puntosDeVida;
-    }
-
-    public int getPuntosDeVidaMaximos() {
-        return puntosDeVidaMaximos;
-    }
-
+    /**
+     * Suma al personaje la experiencia indicada y sube de nivel si es necesario.
+     * 
+     * @param puntos Puntos de expericnia a sumar.
+     * @return Número de niveles subidos.
+     */
     public byte sumarExperiencia(int puntos) {
-        experiencia += puntos;
-        byte nivelesSubidos = 0;
+        int nivelAnterior = 1 + experiencia / EXPERIENCIA_SUBIDA_NIVEL;
 
-        while (experiencia >= 1000) {
-            experiencia -= 1000;
-            nivelesSubidos++;
+        experiencia += puntos;
+
+        int nivelActual = 1 + experiencia / EXPERIENCIA_SUBIDA_NIVEL;
+
+        byte nivelesSubidos = (byte) (nivelActual - nivelAnterior);
+
+        // Subir de nivel si es necesario
+        for (int i = 0; i < nivelesSubidos; i++) {
             subirNivel();
         }
 
         return nivelesSubidos;
     }
 
-    public void subirNivel() {
-        nivel++;
-        fuerza = (int) (fuerza * 1.05);
-        agilidad = (int) (agilidad * 1.05);
-        constitucion = (int) (constitucion * 1.05);
-        puntosDeVidaMaximos = 50 + constitucion;
-        puntosDeVida = puntosDeVidaMaximos;
-    }
-
-    public void curar() {
-        if (puntosDeVida < puntosDeVidaMaximos) {
-            puntosDeVida = puntosDeVidaMaximos;
-        }
-    }
-
+    /**
+     * Resta puntos de vida al personaje y devuelve si ha muerto.
+     * 
+     * @param puntos Puntos de vida a restar.
+     * @return true si el personaje ha muerto.
+     */
     public boolean perderVida(int puntos) {
-        puntosDeVida -= puntos;
-        if (puntosDeVida <= 0) {
-            puntosDeVida = 0;
-            return true;
+        boolean muerto = false;
+        puntosVida -= puntos;
+        if (puntosVida <= 0) {
+            muerto = true;
         }
-        return false;
+        return muerto;
     }
 
+    /**
+     * Devuelve si el personaje está vivo.
+     * 
+     * @return true si el personaje está vivo.
+     */
     public boolean estaVivo() {
-        return puntosDeVida > 0;
+        return puntosVida > 0;
     }
 
-
+    /**
+     * Ataca a un enemigo y devuelve el daño hecho.
+     * 
+     * @param enemigo Personaje enemigo al que atacar.
+     * @return Daño hecho.
+     */
     public int atacar(Personaje enemigo) {
-        int ataque = fuerza + rnd.nextInt(100) + 1;
-        int defensa = enemigo.agilidad + rnd.nextInt(100) + 1;
-        int daño = Math.max(0, ataque - defensa);
+        int ataque = fuerza + random(1, 100);
+        int defensa = enemigo.agilidad + random(1, 100);
+        int danho = ataque - defensa;
 
-        if (daño > enemigo.puntosDeVida) {
-            daño = enemigo.puntosDeVida;
+        // No puede hacer daño negativo
+        if (danho < 0)
+            danho = 0;
+        else {
+            // No puede hacer más daño de los puntos de vida que le quedan al enemigo
+            if (danho > enemigo.puntosVida) {
+                danho = enemigo.puntosVida;
+            }
+            sumarExperiencia(danho);
+            enemigo.sumarExperiencia(danho);
+            enemigo.perderVida(danho);
         }
 
-        if (daño > 0) {
-            enemigo.perderVida(daño);
-            this.sumarExperiencia(daño);
-            enemigo.sumarExperiencia(daño);
-        }
-
-        return daño;
+        return danho;
     }
 
 
-    public int atacar(Monstruo m) {
-        Random rnd = new Random();
-        int dano = Math.max(0, fuerza - m.getDefensa() + rnd.nextInt(10));
-        System.out.println(this.nombre + " ataca a " + m.getNombre() + " y le hace " + dano + " de daño.");
-        m.perderVida(dano); // El monstruo pierde vida
-        return dano;
+    /*
+     * MÉTODOS PRIVADOS
+     */
+    private static int random(int i, int f) {
+        return (int) (Math.random() * (f - i + 1) + i);
     }
-    
-    public int getDefensa() {
-        return (fuerza + agilidad) / 2;
-    }
+
+    /*
+     * MAIN: para probar la clase
+     */
 
     public static void main(String[] args) {
 
-        try {
-            Personaje p1 = new Personaje("Aragorn", Raza.HUMANO, 90, 80, 85, 70, 60, 75, 5, 1500);
-            p1.mostrar();
-            System.out.println(p1);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        System.out.println("Puntos de vida base de los personajes: " + Personaje.PUNTOS_VIDA_BASE);
 
-        try {
-            Personaje p2 = new Personaje("Legolas", Raza.ELFO, 85, 95, 70, 80, 90, 85);
-            p2.mostrar();
-            System.out.println(p2);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        Personaje p01 = new Personaje("Aragorn", Raza.HUMANO, 90, 90, 90, 10, 16252, 125);
+        p01.sumarExperiencia(2500);
 
-        try {
-            Personaje p3 = new Personaje("Gimli", Raza.ENANO);
-            p3.mostrar();
-            System.out.println(p3);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        Personaje p02 = new Personaje("Mara", Raza.ELFO, 100, 100, 100);
 
-        try {
-            Personaje p4 = new Personaje("Boromir");
-            p4.mostrar();
-            System.out.println(p4);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+        Personaje p03 = new Personaje("Dodol Bazbal", Raza.ENANO);
+
+        Personaje p04 = new Personaje("Lady Jet");
+
+        Personaje[] banda = { p01, p02, p03, p04 };
+
+        for (Personaje p : banda) {
+            System.out.println(p);
         }
+        System.out.println();
     }
-    
+
 }
