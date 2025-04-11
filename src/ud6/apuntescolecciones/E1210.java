@@ -1,7 +1,5 @@
 package ud6.apuntescolecciones;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;

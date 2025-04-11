@@ -2,49 +2,63 @@ package ud5.prdexamen;
 
 import java.util.Arrays;
 
-public class Host {
+public class Host implements Comparable<Host>{
 
     // Tu código aquí
-
-    String nombre;
-    String ip;
-    String mac;
-    String mascaraDeRed;
-    String puertaDeEnlace;
-    String servidoresDNS;
+    protected String nombre;
+    protected String ip;
+    protected String mac;
     
+    static public String netmask = "255.255.0.0";
+    static public String gateway = "192.168.0.11";
+    static public String nameserver = "192.168.0.9";
+
     public Host(String nombre, String ip, String mac) {
-        this.nombre = nombre;
-        this.ip = ip;
-        this.mac = mac;
-    }
+        if (nombre == null)
+            throw new IllegalArgumentException("Error: El nombre no puede ser nulo");
+        else
+            this.nombre = nombre;
 
-    public void Host (String mascaraDeRed, String puertaDeEnlace, String servidoresDNS) {
-        this.mascaraDeRed = ("255.255.0.0");
-        this.puertaDeEnlace = ("192.168.0.11");
-        this.servidoresDNS = ("192.168.0.9");
-    }
+        if (ip != null && !validarIP(ip))
+            throw new IllegalArgumentException("Error: Formato de IP no válido");
+        else
+            this.ip = ip;
 
-    public void validarNombre() {
-    if (nombre == null) {
-        throw new IllegalArgumentException ("El nombre no puede ser nulo");
-        }
+        if (mac == null || mac != null && !validarMAC(mac))
+            throw new IllegalArgumentException("Error: dirección MAC nula o con formato no válido");
+        else
+            this.mac = mac;
     }
 
     @Override
-    public boolean equals(Object h) {
-        Host otroHost = (Host) h;
-        boolean iguales = false;
-        if (this.mac.equals(otroHost.mac)) {
-            iguales = true;
-        }
-            return iguales;
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Host other = (Host) obj;
+        if (mac == null || other.mac == null)
+                return false;
+        else 
+            return this.mac.replaceAll("[:-]", "").equalsIgnoreCase(other.mac.replaceAll("[:-]", ""));
     }
+
+
+    @Override
+    public int compareTo(Host o) {
+        return nombre.compareTo(o.nombre);
+    }
+
 
     @Override
     public String toString() {
-        return nombre + "(" + ip + mac + ")";
+        return nombre + " (" + ip + " / " + mac + ")";
     }
+
+
+
 
     boolean validarIP(String ip) {
         return ip.matches("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}");
@@ -72,4 +86,5 @@ public class Host {
         System.out.println(h100.nombre + " = " + h102.nombre + "? " + h100.equals(h102)); // false
         System.out.println(h100.nombre + " = " + h103.nombre + "? " + h100.equals(h103)); // true
     }
+
 }

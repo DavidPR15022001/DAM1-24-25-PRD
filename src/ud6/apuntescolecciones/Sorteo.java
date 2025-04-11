@@ -34,8 +34,6 @@ public class Sorteo<T> {
         Set<T> premiados = new LinkedHashSet<>();
 
         List<T> lista = new ArrayList<>(elementos);
-
-        
         Collections.shuffle(lista);
 
         for (int i = 0; i < numPremiados; i++) {
@@ -43,7 +41,6 @@ public class Sorteo<T> {
         }
 
         return premiados;
-
     }
 
     public static void main(String[] args) {
