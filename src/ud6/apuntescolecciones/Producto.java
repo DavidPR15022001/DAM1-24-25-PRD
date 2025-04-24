@@ -13,10 +13,4 @@ class Producto {
     public String toString() {
         return codigo + "-" + nombre;
     }
-
-    public Producto(String codigo) {
-        this.codigo = codigo;
-    }
-
-    
 }
