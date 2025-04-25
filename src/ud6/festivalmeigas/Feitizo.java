@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -12,6 +13,7 @@ public class Feitizo {
     private String nome;
     List<String> ingredientes;
     private Integer dificultade;
+    private String ingredienteNuevo;
 
     // Constructores
     public Feitizo(String nome, String[] ingredientes, Integer dificultade) {
@@ -65,6 +67,15 @@ public class Feitizo {
     }
 
     public boolean addIngrediente(String ingrediente) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce un nuevo ingrediente a añadir");
+        ingredienteNuevo = sc.nextLine();
+        if (ingredientes.contains(ingredienteNuevo)) {
+            System.out.println("Ya existe este ingrediente en la lista");
+        } else if (!ingredientes.contains(ingredienteNuevo)) {
+            ingredientes.add(ingredienteNuevo);
+            System.out.println("Ingrediente añadido a la lista");
+        };
         return true;
     }
 
