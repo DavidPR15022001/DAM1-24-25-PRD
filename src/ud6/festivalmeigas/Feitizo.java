@@ -92,6 +92,7 @@ public class Feitizo {
     }
 
     public static Map<String, Integer> ingredientesVecesUsados(Collection<Feitizo> feitizos) {
+        
         return null;
     }
 
