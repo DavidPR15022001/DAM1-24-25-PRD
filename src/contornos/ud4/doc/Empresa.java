@@ -2,7 +2,7 @@ package contornos.ud4.doc;
 
 /**
  * <h2>Clase de empresa</h2>
- * @author DPR
+ * @author NAO
  * @version 1-2025
  */
 public class Empresa {
