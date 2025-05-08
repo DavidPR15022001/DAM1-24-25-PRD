@@ -40,16 +40,24 @@ public class Conversor extends Application {
     private void convertirEurosADólares() {
         double resultado;
         double n1;
+        try {
         n1 = Double.parseDouble(txtEuros.getText());
         resultado = n1 * 1.13;
         lblResultadoConversión.setText(String.valueOf(String.format("%.2f", resultado)));
+        } catch (Exception ex){
+        lblResultadoConversión.setText("ERROR: Los datos introducidos deben ser números !!!");
+        }
         }
     private void convertirDólaresAEuros() {
         double resultado;
         double n2;
+        try {
         n2 = Double.parseDouble(txtDólares.getText());
         resultado = n2 / 1.13;
         lblResultadoConversión.setText(String.valueOf(String.format("%.2f", resultado)));
+        } catch (Exception ex){
+        lblResultadoConversión.setText("ERROR: Los datos introducidos deben ser números !!!");
+        }
         }
     }   
 
