@@ -5,8 +5,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class Ejemplo1 extends Application{
+public class Ejemplo1 extends Application {
     static int contador = 0;
+
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, JavaFX!");
         launch();
@@ -21,8 +22,8 @@ public class Ejemplo1 extends Application{
             contador++;
             if (contador > 1)
                 btn.setText("Botón pulsado " + contador + " veces!!!");
-            else {
-            btn.setText("Botón pulsado!!!");}
+            else
+                btn.setText("Botón pulsado!!!");
         });
         Scene scene = new Scene(btn, 300, 200);
         stage.setTitle("Hola, JavaFX");

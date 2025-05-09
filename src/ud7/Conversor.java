@@ -27,7 +27,7 @@ public class Conversor extends Application {
         
         VBox vbox = new VBox(txtEuros, txtDólares, btnConvertirEurosADólares, btnConvertirDólaresAEuros, lblResultadoConversión);
 
-        Scene scene = new Scene(vbox, 300, 200);
+        Scene scene = new Scene(vbox, 325, 200);
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("Conversor de Euros a Dólares");
@@ -43,7 +43,7 @@ public class Conversor extends Application {
         try {
         n1 = Double.parseDouble(txtEuros.getText());
         resultado = n1 * 1.13;
-        lblResultadoConversión.setText(String.valueOf(String.format("%.2f", resultado)));
+        lblResultadoConversión.setText(String.valueOf(String.format("%.2f $", resultado)));
         } catch (Exception ex){
         lblResultadoConversión.setText("ERROR: Los datos introducidos deben ser números !!!");
         }
@@ -54,7 +54,7 @@ public class Conversor extends Application {
         try {
         n2 = Double.parseDouble(txtDólares.getText());
         resultado = n2 / 1.13;
-        lblResultadoConversión.setText(String.valueOf(String.format("%.2f", resultado)));
+        lblResultadoConversión.setText(String.valueOf(String.format("%.2f €", resultado)));
         } catch (Exception ex){
         lblResultadoConversión.setText("ERROR: Los datos introducidos deben ser números !!!");
         }
