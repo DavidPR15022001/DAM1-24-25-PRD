@@ -28,9 +28,9 @@
       <Label layoutX="41.0" layoutY="112.0" text="LastLogin" />
       <Label fx:id="lblLastLogin" layoutX="109.0" layoutY="112.0" text="LastLogin" />
       <Label layoutX="40.0" layoutY="144.0" text="Password" />
-      <PasswordField fx:id="txtPassword" layoutX="109.0" layoutY="140.0" />
+      <PasswordField fx:id="txtPassword" layoutX="109.0" layoutY="140.0" promptText="Escribe tu contraseña" />
       <Label layoutX="40.0" layoutY="179.0" prefWidth="79.0" text="Repetir Pass" />
-      <PasswordField fx:id="txtRepetirPassword" layoutX="109.0" layoutY="175.0" />
+      <PasswordField fx:id="txtRepetirPassword" layoutX="109.0" layoutY="175.0" promptText="Confirma la contraseña" />
       <Button defaultButton="true" layoutX="109.0" layoutY="214.0" mnemonicParsing="false" onAction="#cambiarPassword" text="Cambiar Password" />
       <Button layoutX="216.0" layoutY="10.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
       <Button fx:id="btnAdmin" layoutX="216.0" layoutY="45.0" mnemonicParsing="false" onAction="#admin" text="Admin" />

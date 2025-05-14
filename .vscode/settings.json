@@ -14,5 +14,8 @@
         "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\jdk.jsobject.jar",
         "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\jfx.incubator.input.jar",
         "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\jfx.incubator.richtext.jar"
+    ],
+    "cSpell.words": [
+        "apuntesficherostexto"
     ]
 }
