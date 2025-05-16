@@ -7,17 +7,17 @@ import java.io.IOException;
 public class EjemploFileReader {
 
     static final String PATH = "src/ud7/apuntesficherostexto/";
-    
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         try {
-        FileReader fichero = new FileReader(PATH + "texto.txt");
-        int ch = fichero.read();
-        while (ch != -1) {
-            System.out.println((char) ch);
-            ch = fichero.read();
-        }
-        fichero.read();
+            FileReader fichero = new FileReader(PATH + "texto.txt");
+            int ch = fichero.read();
+            while (ch != -1) {
+                System.out.println((char) ch);
+                ch = fichero.read();
+            }
+            fichero.close();
+            
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         } catch (IOException e) {

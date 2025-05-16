@@ -11,24 +11,27 @@ import java.util.Scanner;
 public class AP103_Jugadores {
 
     static final String PATH = "src/ud7/apuntesficherostexto/";
-    
+
     public static void main(String[] args) {
-        
+
         List<Jugador> equipo = new ArrayList<>();
-
-        try {
-        BufferedReader in = new BufferedReader(new FileReader(PATH + "Jugadores.txt"));
-        Scanner sc = new Scanner(in);
-        while (sc.hasNextLine()) {
-            String nombre = sc.next();
-            int edad = sc.nextInt();
-            double estatura = sc.nextDouble();
-
-        }
-        in.close();
-
-        System.out.println("Equipo = " + equipo);
         
+        try {
+            BufferedReader in = new BufferedReader(new FileReader(PATH + "Jugadores.txt"));
+            Scanner sc = new Scanner(in);
+            while (sc.hasNextLine()) {
+                String nombre = sc.next();
+                int edad = sc.nextInt();
+                double estatura = sc.nextDouble();
+
+                equipo.add(new Jugador(nombre, edad, estatura));
+                
+            }
+            in.close();
+            sc.close();
+
+            System.out.println("Equipo = " + equipo);
+
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         } catch (IOException e) {
@@ -36,6 +39,7 @@ public class AP103_Jugadores {
         }
     }
 }
+
 
 class Jugador {
     String nombre;
@@ -47,9 +51,10 @@ class Jugador {
         this.edad = edad;
         this.estatura = estatura;
     }
-
     @Override
     public String toString() {
         return "Jugador [nombre=" + nombre + ", edad=" + edad + ", estatura=" + estatura + "]";
     }
+
+    
 }

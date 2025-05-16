@@ -9,20 +9,20 @@ import java.util.Scanner;
 public class EjemploScanner {
 
     static final String PATH = "src/ud7/apuntesficherostexto/";
-    
+
     public static void main(String[] args) {
         int suma = 0;
         try {
-        BufferedReader in = new BufferedReader(new FileReader(PATH + "Enteros.txt"));
-        Scanner sc = new Scanner(in);
-        while (sc.hasNextInt()) {
-            int num = sc.nextInt();
-            suma += num;
-        }
-        in.close();
+            BufferedReader in = new BufferedReader(new FileReader(PATH + "Enteros.txt"));
+            Scanner sc = new Scanner(in);
+            while (sc.hasNextInt()) {
+                int num = sc.nextInt();
+                suma += num;
+            }
+            in.close();
 
-        System.out.println("Suma = " + suma);
-        
+            System.out.println("Suma = " + suma);
+
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         } catch (IOException e) {

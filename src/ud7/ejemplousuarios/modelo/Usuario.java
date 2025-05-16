@@ -16,7 +16,7 @@ public class Usuario {
 
     // Datos personales
     private String dni;
-    private String email;
+    private String email;    
     private String nombre;
     private String apellidos;
     private String telefono;
@@ -27,7 +27,7 @@ public class Usuario {
     private String pais;
     private LocalDate fechaNacimiento;
     private String sexo;
-    private String nacionalidad;
+    private String nacionalidad;   
     private String estadoCivil;
     private String ocupacion;
     private String estudios;
