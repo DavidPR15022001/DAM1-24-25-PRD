@@ -1,19 +1,25 @@
 {
-    "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths": [
+        "src"
+    ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\javafx.base.jar",
-        "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\javafx.controls.jar",
-        "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\javafx.fxml.jar",
-        "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\javafx.graphics.jar",
-        "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\javafx.media.jar",
-        "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\javafx.swing.jar",
-        "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\javafx.web.jar",
-        "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\javafx-swt.jar",
-        "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\jdk.jsobject.jar",
-        "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\jfx.incubator.input.jar",
-        "d:\\dpadiruib\\openjfx-24.0.1_windows-x64_bin-sdk\\javafx-sdk-24.0.1\\lib\\jfx.incubator.richtext.jar"
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\javafx.media.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\gson-2.12.1.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\javafx.controls.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\mysql-connector-java-8.0.30.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\javafx-swt.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\javafx.swing.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\javafx.web.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\junit-platform-console-standalone-1.11.3.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\javafx.graphics.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\javafx.base.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\jfx.incubator.richtext.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\jfx.incubator.input.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\jdk.jsobject.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\bcrypt-0.10.2.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\bytes-1.6.1.jar",
+        "f:\\dpadiruib\\Contornos de desenvolvemento\\Repositorios VSCode\\DAM1-24-25-PRD\\lib\\javafx.fxml.jar"
     ],
     "cSpell.words": [
         "apuntesficherostexto"
