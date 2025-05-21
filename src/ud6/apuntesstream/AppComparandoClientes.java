@@ -15,7 +15,7 @@ public class AppComparandoClientes {
         // 2. Usando una clase anónima
         // 3. Usando una expresión lambda
         // 4. Usando una referencia a un método
- 
+
 
         // 1. Usando una clase que implementa Comparator
         Comparator<Cliente> comp = new ComparaNombres();
