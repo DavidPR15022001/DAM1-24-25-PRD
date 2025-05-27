@@ -78,12 +78,12 @@ public class Mapa extends Application {
         primaryStage.setResizable(false);
         Scene scene = new Scene(gridPane);
         scene.setOnKeyTyped(e -> {
-            System.out.println(e.getCode().toString() + " - " + e.getCharacter());                
+            System.out.println(e.getCode().toString() + " - " + e.getCharacter());
             switch (e.getCharacter()) {
-                case "a": break;
-                case "w": break;
-                case "s": break;
-                case "d": break;
+                case "a": columna--; break;
+                case "w": fila--; break;
+                case "s": fila++; break;
+                case "d": columna++;break;
             }
         });
         primaryStage.setScene(scene);
